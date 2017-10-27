@@ -1,1 +1,1 @@
-local sub_abc = {["all"] = 20203112}
+local sub_g1zstar = {["all"] = 20203112, ["ROGUE"] = 19951130}
