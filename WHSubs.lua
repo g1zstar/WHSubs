@@ -1,1 +1,2 @@
-sub_g1zstar = {["ALL"] = 20203112, ["ROGUE"] = 19951130}
+sub_g1zstar = {["ALL"] = 99993112}
+sub_alcovex = {["ROGUE"] = 99993112}
