@@ -4,3 +4,4 @@ sub_evilgav = {["ROGUE"] = 20171113}
 sub_fooshi  = {["ROGUE"] = 20171113}
 sub_toxin87 = {["ROGUE"] = 20171113}
 sub_zrrx    = {["ROGUE"] = 20171113}
+sub_poisonling = {["ROGUE"] = 20171114}
