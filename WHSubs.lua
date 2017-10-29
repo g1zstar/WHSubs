@@ -5,5 +5,5 @@ sub_fooshi  = {["ROGUE"] = 20171113}
 sub_toxin87 = {["ROGUE"] = 20171113}
 sub_zrrx    = {["ROGUE"] = 20171113}
 sub_poisonling = {["ROGUE"] = 20171114}
-sub_mxrender = {["DEMONHUNTER"] = 2020000000000}
+sub_mxrender = {["ROGUE"] = 20171115}
 sub_spacek = {["ROGUE"] = 20171115}
