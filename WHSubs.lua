@@ -9,4 +9,4 @@ sub_mxrender   = {["ROGUE"] = 20171115}
 sub_spacek     = {["ROGUE"] = 20171115}
 sub_inkedqt    = {["ROGUE"] = 20171115}
 sub_binkya     = {["ROGUE"] = 20171117}
-sub_Frontliner1989 = {["ROGUE"] = 20171202}
+sub_frontliner1989 = {["ROGUE"] = 20171202}
