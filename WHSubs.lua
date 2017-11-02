@@ -1,4 +1,4 @@
-sub_g1zstar    = {["DEMONHUNTER"] = 20171114}
+sub_g1zstar    = {["DEMONHUNTER"] = 20171128}
 sub_alcovex    = {["ROGUE"] = 99991231}
 sub_evilgav    = {["ROGUE"] = 20171127}
 sub_fooshi     = {["ROGUE"] = 20171127}
