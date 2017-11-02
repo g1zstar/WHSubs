@@ -13,7 +13,6 @@ sub_frontliner1989 = {["ROGUE"] = 20171202}
 sub_neverlucky = {["ROGUE"] = 20171202}
 
 sub_DEATHKNIGHT = 20171231
-sub_DEMONHUNTER = 20171231
 sub_DRUID = 20171231
 sub_HUNTER = 20171231
 sub_MAGE = 20171231
