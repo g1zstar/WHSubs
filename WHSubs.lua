@@ -1,4 +1,4 @@
-sub_g1zstar    = {["DEMONHUNTER"] = 20171128}
+sub_g1zstar    = {["ALL"] = 99991231}
 sub_alcovex    = {["ROGUE"] = 99991231}
 sub_evilgav    = {["ROGUE"] = 20171127}
 sub_fooshi     = {["ROGUE"] = 20171127}
@@ -13,6 +13,7 @@ sub_frontliner1989 = {["ROGUE"] = 20171202}
 sub_neverlucky = {["ROGUE"] = 20171202}
 
 sub_DEATHKNIGHT = 20171231
+sub_DEMONHUNTER = 20171231
 sub_DRUID = 20171231
 sub_HUNTER = 20171231
 sub_MAGE = 20171231
