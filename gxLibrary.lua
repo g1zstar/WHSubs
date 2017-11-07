@@ -68,7 +68,10 @@ local function queueUpFailedCast(self, event, unitID, spell, rank, lineID, spell
 end
 queueFrame:SetScript("OnEvent", queueUpFailedCast)
 
-local function cdCheck()
+--[[local function cdCheck()
+    return config("main", "cdmode") == "always" or config("main", "cdmode") == "boss" and target.isboss
+end]]
+cdCheck = function()
     return config("main", "cdmode") == "always" or config("main", "cdmode") == "boss" and target.isboss
 end
 
