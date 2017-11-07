@@ -88,7 +88,6 @@ local function talent(r, c, b)
 end
 
 local function checkSub(...)
-    print(...)
     if licenseChecked then return end
     licenseChecked = true
     local string = "sub_"..string.lower(Engine_GetUsername())
