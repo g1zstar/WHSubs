@@ -1,5 +1,3 @@
-if not gx then gx = {} end
-
 function math.sign(v)
     return (v >= 0 and 1) or -1
 end
@@ -53,10 +51,10 @@ queueFrame:RegisterEvent("UNIT_SPELLCAST_FAILED_QUIET")
 local queueDone = true
 function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
     if UnitIsUnit(unitID, "player") and queueDone then
-        if config(rotationKey, "queue"..spellID) and player.spell(spellID).cooldown <= 2 then
+        if config(gx.rotationKey, "queue"..spellID) and player.spell(spellID).cooldown <= 2 then
             queueDone = false
             gx.queueUpCO(function()
-                    while (not castable(spellID, target) and player.spell(spellID).cooldown <= 2 and config(rotationKey, "queue"..spellID)) do
+                    while (not castable(spellID, target) and player.spell(spellID).cooldown <= 2 and config(gx.rotationKey, "queue"..spellID)) do
                         print("GX Queue System: Casting "..spell)
                         coroutine.yield()
                     end
