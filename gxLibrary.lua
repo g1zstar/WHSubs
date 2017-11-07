@@ -1,4 +1,4 @@
-gx.libraryVer = 1
+gx.libraryVer = 2
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -24,7 +24,6 @@ function gx.emptyCO()
 end
 
 function gx.printd(...)
-    print(Engine_GetUsername())
     if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print(...) end
 end
 
