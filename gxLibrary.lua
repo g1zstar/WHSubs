@@ -1,4 +1,4 @@
-gx.libraryVer = 4
+gx.libraryVer = 5
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -24,7 +24,7 @@ function gx.emptyCO()
 end
 
 function gx.printd(...)
-    if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print(...) end
+    if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..(...)) end
 end
 
 function gx.notEnoughEnergyFor(spell)
@@ -57,7 +57,7 @@ function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
             queueDone = false
             gx.queueUpCO(function()
                     while (not castable(spellID, target) and player.spell(spellID).cooldown <= 2 and config(gx.rotationKey, "queue"..spellID)) do
-                        print("GX Queue System: Casting "..spell)
+                        print("GXR Queue System: Casting "..spell)
                         coroutine.yield()
                     end
                     while(player.spell(spellID).cooldown == 0) do
