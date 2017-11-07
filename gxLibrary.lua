@@ -1,4 +1,4 @@
-gx.libraryVer = 2
+gx.libraryVer = 3
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -47,11 +47,12 @@ function gx.poolEnergyFor(spell, cast, unit)
         end)
 end
 
-local queueFrame = CreateFrame("Frame")
+local queueFrame = CreateFrame("Frame", "queueFrame")
 queueFrame:RegisterEvent("UNIT_SPELLCAST_FAILED")
 queueFrame:RegisterEvent("UNIT_SPELLCAST_FAILED_QUIET")
 local queueDone = true
 function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
+    print(unitID, spellID)
     if UnitIsUnit(unitID, "player") and queueDone then
         if config(gx.rotationKey, "queue"..spellID) and player.spell(spellID).cooldown <= 2 then
             queueDone = false
@@ -68,7 +69,7 @@ function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
         end
     end
 end
-queueFrame:SetScript("OnEvent", queueUpFailedCast)
+queueFrame:SetScript("OnEvent", gx.queueUpFailedCast)
 
 function gx.cdCheck()
     return config("main", "cdmode") == "always" or config("main", "cdmode") == "boss" and target.isboss
