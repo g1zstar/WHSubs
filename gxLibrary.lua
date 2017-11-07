@@ -1,9 +1,9 @@
-_G["math"].sign = function(v)
+function math.sign(v)
     return (v >= 0 and 1) or -1
 end
-_G["math"].round = function(v, bracket)
+function math.round(v, bracket)
     bracket = bracket or 1
-    return _G["math"].floor(v/bracket + _G["math"].sign(v) * .5) * bracket
+    return math.floor(v/bracket + math.sign(v) * 0.5) * bracket
 end
 
 local gxCOFrame = CreateFrame("Frame")
@@ -68,10 +68,7 @@ local function queueUpFailedCast(self, event, unitID, spell, rank, lineID, spell
 end
 queueFrame:SetScript("OnEvent", queueUpFailedCast)
 
---[[local function cdCheck()
-    return config("main", "cdmode") == "always" or config("main", "cdmode") == "boss" and target.isboss
-end]]
-function cdCheck()
+local function cdCheck()
     return config("main", "cdmode") == "always" or config("main", "cdmode") == "boss" and target.isboss
 end
 
