@@ -1,4 +1,4 @@
-gx.libraryVer = 3
+gx.libraryVer = 4
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -35,13 +35,13 @@ function gx.poolEnergyFor(spell, cast, unit)
     gx.queueUpCO(function()
             while (not castable(spell)) do
                 coroutine.yield()
-                printd("Pooling for "..GetSpellInfo(spell))
+                gx.printd("Pooling for "..GetSpellInfo(spell))
             end
             if cast then
                 while (castable(spell, unit)) do
                     cast(spell, unit)
                     coroutine.yield()
-                    printd("Casting "..GetSpellInfo(spell).." after Pooling")
+                    gx.printd("Casting "..GetSpellInfo(spell).." after Pooling")
                 end
             end
         end)
@@ -52,7 +52,6 @@ queueFrame:RegisterEvent("UNIT_SPELLCAST_FAILED")
 queueFrame:RegisterEvent("UNIT_SPELLCAST_FAILED_QUIET")
 local queueDone = true
 function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
-    print(unitID, spellID)
     if UnitIsUnit(unitID, "player") and queueDone then
         if config(gx.rotationKey, "queue"..spellID) and player.spell(spellID).cooldown <= 2 then
             queueDone = false
@@ -61,9 +60,12 @@ function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
                         print("GX Queue System: Casting "..spell)
                         coroutine.yield()
                     end
-                    cast(spellID, target)
+                    while(player.spell(spellID).cooldown == 0) do
+                        cast(spellID, target)
+                        coroutine.yield()
+                    end
                     queueDone = true
-                    printd("DONE QUEUE")
+                    gx.printd("DONE QUEUE")
                 end)
             return
         end
