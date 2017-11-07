@@ -1,7 +1,9 @@
-function math.sign(v)
+--[[function math.sign(v)]]
+_G["math"].sign = function(v)
     return (v >= 0 and 1) or -1
 end
-function math.round(v, bracket)
+--[[function math.round(v, bracket)]]
+_G["math"].round = function(v, bracket)
     bracket = bracket or 1
     return math.floor(v/bracket + math.sign(v) * 0.5) * bracket
 end
