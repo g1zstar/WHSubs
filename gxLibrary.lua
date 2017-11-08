@@ -1,4 +1,4 @@
-gx.libraryVer = 6
+gx.libraryVer = 7
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -13,7 +13,7 @@ local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
     if func then table.insert(coTable, func) return end
-    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then return (select(2, coroutine.resume(gxCO)) == "continue" and false or true) elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
+    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then return (select(2, coroutine.resume(gxCO)) ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
 end
 function gx.emptyCO()
@@ -21,6 +21,10 @@ function gx.emptyCO()
         table.remove(coTable)
     end
     if type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then gxCO = nil end
+end
+
+function gx.inQueue(func)
+    return tContains(coTable, func)
 end
 
 function gx.printd(...)
