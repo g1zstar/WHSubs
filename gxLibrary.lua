@@ -1,4 +1,4 @@
-gx.libraryVer = 8
+gx.libraryVer = 9
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
