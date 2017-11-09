@@ -1,4 +1,4 @@
-gx.libraryVer = 10
+gx.libraryVer = 11
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -13,7 +13,7 @@ local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
     if func then table.insert(coTable, func) return end
-    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then return (select(2, coroutine.resume(gxCO)) ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
+    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= "continue" then WriteFile(GetHackDirectory().."\\gxError.txt", table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
 end
 function gx.emptyCO()
@@ -32,7 +32,9 @@ function gx.queueSize()
 end
 
 function gx.printd(...)
-    if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..(...)) end
+    local tableS = {...}
+    for k,v in pairs(tableS) do tableS[k] = tostring(v) end
+    if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..table.concat(tableS, ", ")) end
 end
 
 function gx.notEnoughEnergyFor(spell)
@@ -95,6 +97,74 @@ function gx.talent(r, c, b)
     else
         return player.talent(r, c) and 1 or 0
     end
+end
+
+function gx.getMovingTable()
+    local movingTable = {}
+    for k,v in pairs(MovementFlag) do
+        if UnitMovementFlag("player", v) then movingTable[k] = true end
+    end
+    return movingTable
+end
+
+local stopMovingTable = {StrafeLeft = StrafeLeftStop, Backward = MoveBackwardStop, TurnLeft = TurnLeftStop, StrafeRight = StrafeRightStop, Ascending = AscendStop, TurnRight = TurnRightStop, PitchDown = PitchDownStop, Descending = DescendStop, Forward = MoveForwardStop, PitchUp = PitchUpStop}
+function gx.stopMoving(movingTable)
+    for k,v in pairs(movingTable) do
+        if stopMovingTable[k] then stopMovingTable[k]() end
+    end
+end
+
+local keyCode = {BUTTON3 = 0x04, BUTTON4 = 0x05, BUTTON5 = 0x06, BACKSPACE = 0x08, TAB = 0x09, ENTER = 0x0D, SHIFT = 0x10, CAPSLOCK = 0x14, ESCAPE = 0x1B, SPACE = 0x20, PAGEUP = 0x21, PAGEDOWN = 0x20, END = 0x23, HOME = 0x24, LEFT = 0x25, UP = 0x26, RIGHT = 0x27, DOWN = 0x28, INSERT = 0x2D, DELETE = 0x2E, NUMPADMULTIPLY = 0x6A, NUMPADPLUS = 0x6B, --[[NUMPADSEPARATOR NUMPAD00 = 0x6C,]] NUMPADMINUS = 0x6D, NUMPADDECIMAL = 0x6E, NUMPADDIVIDE = 0x6F, NUMLOCK = 0x90, LSHIFT = 0xA0, RSHIFT = 0xA1, LCTRL = 0xA2, RCTRL = 0xA3, LALT = 0xA4, RALT = 0xA5}
+for i = 0, 9 do
+    keyCode[tostring(i)] = 0x30+i
+end
+for i = 0, 25 do
+    keyCode[string.char(65+i)] = 0x41+i
+end
+for i = 0, 9 do
+    keyCode["NUMPAD"..tostring(i)] = 0x60+i
+end
+for i = 1, 24 do
+    keyCode["F"..tostring(i)] = 0x6F+i
+end
+
+local function checkKeyState(keys)
+    for k,v in pairs(keys) do
+        if v == "SHIFT" or v == "ALT" or v == "CTRL" then
+            if (not GetKeyState(keyCode["L"..v]) and not GetKeyState(keyCode["R"..v])) then return false end
+        end
+        if not GetKeyState(keyCode[v]) then return false end
+    end
+    return true
+end
+
+local startMovingTable = {StrafeLeft = StrafeLeftStart, Backward = MoveBackwardStart, TurnLeft = TurnLeftStart, StrafeRight = StrafeRightStart, Ascending = JumpOrAscendStart, TurnRight = TurnRightStart, PitchDown = PitchDownStart, Descending = SitStandOrDescendStart, Forward = MoveForwardStart, PitchUp = PitchUpStart}
+local bindingsMovingTable = {MOVEANDSTEER = MoveAndSteerStart, MOVEFORWARD = MoveForwardStart, MOVEBACKWARD = MoveBackwardStart, TURNLEFT = TurnLeftStart, TURNRIGHT = TurnRightStart, STRAFELEFT = StrafeLeftStart, STRAFERIGHT = StrafeRightStart, PITCHUP = PitchUpStart, PITCHDOWN = PitchDownStart}
+function gx.startMoving(movingTable)
+    for k,v in pairs(movingTable) do
+        if startMovingTable[k] then startMovingTable[k]() end
+    end
+
+    -- for k,v in pairs(movingTable) do
+        -- for i = 1, 15 do
+        --     local name, _, keyOne, keyTwo = GetBinding(i)
+        --     local comboOne, comboTwo = {}, {}
+            
+        --     if keyOne then
+        --         for s in string.gmatch(keyOne, "[^%-]+") do
+        --             table.insert(comboOne, s)
+        --         end
+        --     end
+
+        --     if keyTwo then
+        --         for s in string.gmatch(keyTwo, "[^%-]+") do
+        --             table.insert(comboOne, s)
+        --         end
+        --     end
+
+        --     if bindingsMovingTable[name] and (keyOne and checkKeyState(comboOne) or keyTwo and checkKeyState(comboTwo)) then bindingsMovingTable[name]() end
+        -- end
+    -- end
 end
 
 gxMKB = {
