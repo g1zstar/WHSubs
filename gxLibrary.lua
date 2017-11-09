@@ -397,9 +397,9 @@ gxGB = {
     convergence_of_fates = 140806,
 }
 
-local idsList = {"gxRB"}
-for k,v in pairs(idsList) do
+local idsList = {"gxMKB", "gxRB"}
+for _,v in pairs(idsList) do
     for r,c in pairs(gxGB) do
-        _G[k][r] = c
+        _G[v][r] = c
     end
 end
