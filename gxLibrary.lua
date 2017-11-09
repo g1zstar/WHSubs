@@ -1,4 +1,4 @@
-gx.libraryVer = 9
+gx.libraryVer = 10
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -25,6 +25,10 @@ end
 
 function gx.inQueue(func)
     return tContains(coTable, func)
+end
+
+function gx.queueSize()
+    return #coTable
 end
 
 function gx.printd(...)
