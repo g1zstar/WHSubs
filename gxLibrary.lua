@@ -1,4 +1,4 @@
-gx.libraryVer = 12
+gx.libraryVer = 13
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -110,21 +110,6 @@ function gx.inArgus()
     return tContains(argusIDs, GetCurrentMapAreaID())
 end
 
-function gx.getMovingTable()
-    local movingTable = {}
-    for k,v in pairs(MovementFlag) do
-        if UnitMovementFlag("player", v) then movingTable[k] = true end
-    end
-    return movingTable
-end
-
-local stopMovingTable = {StrafeLeft = StrafeLeftStop, Backward = MoveBackwardStop, TurnLeft = TurnLeftStop, StrafeRight = StrafeRightStop, Ascending = AscendStop, TurnRight = TurnRightStop, PitchDown = PitchDownStop, Descending = DescendStop, Forward = function() MoveForwardStop(); MoveAndSteerStop() end, PitchUp = PitchUpStop}
-function gx.stopMoving(movingTable)
-    for k,v in pairs(movingTable) do
-        if stopMovingTable[k] then stopMovingTable[k]() end
-    end
-end
-
 local keyCode = {BUTTON3 = 0x04, BUTTON4 = 0x05, BUTTON5 = 0x06, BACKSPACE = 0x08, TAB = 0x09, ENTER = 0x0D, SHIFT = 0x10, CAPSLOCK = 0x14, ESCAPE = 0x1B, SPACE = 0x20, PAGEUP = 0x21, PAGEDOWN = 0x20, END = 0x23, HOME = 0x24, LEFT = 0x25, UP = 0x26, RIGHT = 0x27, DOWN = 0x28, INSERT = 0x2D, DELETE = 0x2E, NUMPADMULTIPLY = 0x6A, NUMPADPLUS = 0x6B, --[[NUMPADSEPARATOR NUMPAD00 = 0x6C,]] NUMPADMINUS = 0x6D, NUMPADDECIMAL = 0x6E, NUMPADDIVIDE = 0x6F, NUMLOCK = 0x90, LSHIFT = 0xA0, RSHIFT = 0xA1, LCTRL = 0xA2, RCTRL = 0xA3, LALT = 0xA4, RALT = 0xA5}
 for i = 0, 9 do
     keyCode[tostring(i)] = 0x30+i
@@ -150,6 +135,41 @@ local function checkKeyState(keys)
         if not held then return false end
     end
     return true
+end
+
+local autoRunOn
+function gx.getMovingTable()
+    local movingTable = {}
+    for k,v in pairs(MovementFlag) do
+        if UnitMovementFlag("player", v) then movingTable[k] = true end
+    end
+    return movingTable
+end
+
+local stopMovingTable = {StrafeLeft = StrafeLeftStop, Backward = MoveBackwardStop, TurnLeft = TurnLeftStop, StrafeRight = StrafeRightStop, Ascending = AscendStop, TurnRight = TurnRightStop, PitchDown = PitchDownStop, Descending = DescendStop, Forward = function() MoveForwardStart(); MoveForwardStop() end, PitchUp = PitchUpStop}
+function gx.stopMoving(movingTable)
+    for k,v in pairs(movingTable) do
+        print(k,v)
+        if k == "Forward" then
+            local name, _, keyOne, keyTwo = GetBinding(2)
+            local comboOne, comboTwo = {}, {}
+            
+            if keyOne then
+                for s in string.gmatch(keyOne, "[^%-]+") do
+                    table.insert(comboOne, s)
+                end
+            end
+
+            if keyTwo then
+                for s in string.gmatch(keyTwo, "[^%-]+") do
+                    table.insert(comboTwo, s)
+                end
+            end
+
+            autoRunOn = not (keyOne and checkKeyState(comboOne) or keyTwo and checkKeyState(comboTwo))
+        end
+        if stopMovingTable[k] then stopMovingTable[k]() end
+    end
 end
 
 local startMovingTable = {StrafeLeft = StrafeLeftStart, Backward = MoveBackwardStart, TurnLeft = TurnLeftStart, StrafeRight = StrafeRightStart, Ascending = JumpOrAscendStart, TurnRight = TurnRightStart, PitchDown = PitchDownStart, Descending = SitStandOrDescendStart, Forward = MoveForwardStart, PitchUp = PitchUpStart}
@@ -178,6 +198,7 @@ function gx.startMoving(movingTable)
 
             if bindingsMovingTable[name] and (keyOne and checkKeyState(comboOne) or keyTwo and checkKeyState(comboTwo)) then bindingsMovingTable[name]() end
         end
+        if autoRunOn then ToggleAutoRun() end
     -- end
 end
 
