@@ -1,4 +1,12 @@
-gx.libraryVer = 13
+gx.libraryVer = 14
+
+-- Bug Fixes
+local oldSetStat = PaperDollFrame_SetStat
+PaperDollFrame_SetStat = function(statFrame, unit, statIndex)
+   if statIndex == LE_UNIT_STAT_STAMINA then return end
+   oldSetStat(statFrame, unit, statIndex)
+end
+-- Bug Fixes
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
