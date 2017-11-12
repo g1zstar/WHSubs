@@ -1,4 +1,4 @@
-gx.libraryVer = 11
+gx.libraryVer = 12
 
 function math.sign(v)
     return (v >= 0 and 1) or -1
@@ -99,6 +99,17 @@ function gx.talent(r, c, b)
     end
 end
 
+local brokenIslesIDs = {--[[BrokenIsles =]] 1007, --[[Aszuna =]] 1015, --[[BrokenShore =]] 1021, --[[Dalaran =]] 1014, --[[EyeOfAzshara =]] 1098, --[[Highmountain =]] 1024, --[[Stormheim =]] 1017, --[[Suramar =]] 1033, --[[Valsharah =]] 1018,
+                        --[[HallOfTheGuardian =]] 1068, --[[MardumTheShatteredAbyss =]] 1052, --[[NetherlightTemple =]] 1040, --[[Skyhold =]] 1035, --[[TheDreamgrove =]] 1077, --[[TheHeartOfAzeroth =]] 1057, --[[TheWanderingIsle =]] 1044, --[[TrueshotLodge =]] 1072}
+function gx.inBrokenIsles()
+    return tContains(brokenIslesIDs, GetCurrentMapAreaID())
+end
+
+local argusIDs = {--[[MacAree =]] 1170, --[[AtnoranWastes =]] 1171, --[[Argus =]] 1184, --[[Krokuun =]] 1135,}
+function gx.inArgus()
+    return tContains(argusIDs, GetCurrentMapAreaID())
+end
+
 function gx.getMovingTable()
     local movingTable = {}
     for k,v in pairs(MovementFlag) do
@@ -107,7 +118,7 @@ function gx.getMovingTable()
     return movingTable
 end
 
-local stopMovingTable = {StrafeLeft = StrafeLeftStop, Backward = MoveBackwardStop, TurnLeft = TurnLeftStop, StrafeRight = StrafeRightStop, Ascending = AscendStop, TurnRight = TurnRightStop, PitchDown = PitchDownStop, Descending = DescendStop, Forward = MoveForwardStop, PitchUp = PitchUpStop}
+local stopMovingTable = {StrafeLeft = StrafeLeftStop, Backward = MoveBackwardStop, TurnLeft = TurnLeftStop, StrafeRight = StrafeRightStop, Ascending = AscendStop, TurnRight = TurnRightStop, PitchDown = PitchDownStop, Descending = DescendStop, Forward = function() MoveForwardStop(); MoveAndSteerStop() end, PitchUp = PitchUpStop}
 function gx.stopMoving(movingTable)
     for k,v in pairs(movingTable) do
         if stopMovingTable[k] then stopMovingTable[k]() end
@@ -129,11 +140,14 @@ for i = 1, 24 do
 end
 
 local function checkKeyState(keys)
+    local held
     for k,v in pairs(keys) do
+        held = false
         if v == "SHIFT" or v == "ALT" or v == "CTRL" then
-            if (not GetKeyState(keyCode["L"..v]) and not GetKeyState(keyCode["R"..v])) then return false end
+            held = GetKeyState(keyCode["L"..v]) or GetKeyState(keyCode["R"..v])
         end
-        if not GetKeyState(keyCode[v]) then return false end
+        held = held or GetKeyState(keyCode[v])
+        if not held then return false end
     end
     return true
 end
@@ -141,31 +155,35 @@ end
 local startMovingTable = {StrafeLeft = StrafeLeftStart, Backward = MoveBackwardStart, TurnLeft = TurnLeftStart, StrafeRight = StrafeRightStart, Ascending = JumpOrAscendStart, TurnRight = TurnRightStart, PitchDown = PitchDownStart, Descending = SitStandOrDescendStart, Forward = MoveForwardStart, PitchUp = PitchUpStart}
 local bindingsMovingTable = {MOVEANDSTEER = MoveAndSteerStart, MOVEFORWARD = MoveForwardStart, MOVEBACKWARD = MoveBackwardStart, TURNLEFT = TurnLeftStart, TURNRIGHT = TurnRightStart, STRAFELEFT = StrafeLeftStart, STRAFERIGHT = StrafeRightStart, PITCHUP = PitchUpStart, PITCHDOWN = PitchDownStart}
 function gx.startMoving(movingTable)
-    for k,v in pairs(movingTable) do
-        if startMovingTable[k] then startMovingTable[k]() end
-    end
+    -- for k,v in pairs(movingTable) do
+    --     if startMovingTable[k] then startMovingTable[k]() end
+    -- end
 
     -- for k,v in pairs(movingTable) do
-        -- for i = 1, 15 do
-        --     local name, _, keyOne, keyTwo = GetBinding(i)
-        --     local comboOne, comboTwo = {}, {}
+        for i = 1, 15 do
+            local name, _, keyOne, keyTwo = GetBinding(i)
+            local comboOne, comboTwo = {}, {}
             
-        --     if keyOne then
-        --         for s in string.gmatch(keyOne, "[^%-]+") do
-        --             table.insert(comboOne, s)
-        --         end
-        --     end
+            if keyOne then
+                for s in string.gmatch(keyOne, "[^%-]+") do
+                    table.insert(comboOne, s)
+                end
+            end
 
-        --     if keyTwo then
-        --         for s in string.gmatch(keyTwo, "[^%-]+") do
-        --             table.insert(comboOne, s)
-        --         end
-        --     end
+            if keyTwo then
+                for s in string.gmatch(keyTwo, "[^%-]+") do
+                    table.insert(comboTwo, s)
+                end
+            end
 
-        --     if bindingsMovingTable[name] and (keyOne and checkKeyState(comboOne) or keyTwo and checkKeyState(comboTwo)) then bindingsMovingTable[name]() end
-        -- end
+            if bindingsMovingTable[name] and (keyOne and checkKeyState(comboOne) or keyTwo and checkKeyState(comboTwo)) then bindingsMovingTable[name]() end
+        end
     -- end
 end
+
+gxDHB = {
+    soul_of_the_slayer = 151639,
+}
 
 gxMKB = {
     blood_fury = 33697,
@@ -257,159 +275,163 @@ gxRB = {
     mantle_of_the_master_assassin_buff = 235027,
     soul_of_the_shadowblade = 150936,
 
+    smoke_powder_vault = 139585,
+    sticky_bombs_vault = 139584,
+    thistle_tea_vault = 139586,
+
     -- Assassination
-    sinister_strike = 1752,
-    eviscerate = 196819,
-    stealth = 1784,
-    cheap_shot = 1833,
-    deadly_poison = 2823,
-    deadly_poison_debuff = 2818,
-    poisoned_knife = 185565,
-    garrote = 703,
-    pick_pocket = 921,
-    sap = 6770,
-    rupture = 1943,
-    shadowstep = 36554,
-    blind = 2094,
-    evasion = 5277,
-    kidney_shot = 408,
-    envenom = 32645,
-    crippling_poison = 3408,
-    crippling_poison_debuff = 3409,
-    distract = 1725,
-    mutilate = 1329,
-    vanish = 1856,
-    wound_poison = 8679,
-    vendetta = 79140,
-    fan_of_knives = 51723,
+        sinister_strike = 1752,
+        eviscerate = 196819,
+        stealth = 1784,
+        cheap_shot = 1833,
+        deadly_poison = 2823,
+        deadly_poison_debuff = 2818,
+        poisoned_knife = 185565,
+        garrote = 703,
+        pick_pocket = 921,
+        sap = 6770,
+        rupture = 1943,
+        shadowstep = 36554,
+        blind = 2094,
+        evasion = 5277,
+        kidney_shot = 408,
+        envenom = 32645,
+        crippling_poison = 3408,
+        crippling_poison_debuff = 3409,
+        distract = 1725,
+        mutilate = 1329,
+        vanish = 1856,
+        wound_poison = 8679,
+        vendetta = 79140,
+        fan_of_knives = 51723,
 
-    elaborate_planning = 193641,
-    hemorrhage = 16511,
-    leeching_poison = 108211,
-    cheating_death = 45182,
-    cheated_death = 45181,
-    toxic_blade = 245388,
-    alacrity = 193538,
-    exsanguinate = 200806,
-    marked_for_death = 137619,
-    death_from_above = 152150,
+        elaborate_planning = 193641,
+        hemorrhage = 16511,
+        leeching_poison = 108211,
+        cheating_death = 45182,
+        cheated_death = 45181,
+        toxic_blade = 245388,
+        alacrity = 193538,
+        exsanguinate = 200806,
+        marked_for_death = 137619,
+        death_from_above = 152150,
 
-    gladiators_medallion = 208683,
-    shiv = 248744,
-    neurotoxin  = 206328,
+        gladiators_medallion = 208683,
+        shiv = 248744,
+        neurotoxin  = 206328,
 
-    kingsbane = 192759,
-    blood_of_the_assassinated = 192925,
-    master_assassin_trait = 330,
+        kingsbane = 192759,
+        blood_of_the_assassinated = 192925,
+        master_assassin_trait = 330,
 
-    duskwalkers_footpads = 137030,
-    zoldyck_family_training_shackles = 137098,
-    the_empty_crown = 151815,
-    the_dreadlords_deceit = 137021,
-    the_dreadlords_deceit_buff_assn = 208693,
+        duskwalkers_footpads = 137030,
+        zoldyck_family_training_shackles = 137098,
+        the_empty_crown = 151815,
+        the_dreadlords_deceit = 137021,
+        the_dreadlords_deceit_buff_assn = 208693,
 
     -- Outlaw
-    stealth = 1784,
-    cheap_shot = 1833,
-    run_through = 2098,
-    saber_slash = 193315,
-    pistol_shot = 185763,
-    pick_pocket = 921,
-    sap = 6770,
-    between_the_eyes = 199804,
-    ambush = 8676,
-    blind = 2094,
-    riposte = 199754,
-    gouge = 1776,
-    distract = 1725,
-    roll_the_bones = 193316,
-    jolly_roger = 199603,
-    grand_melee = 193358,
-    shark_infested_waters = 193357,
-    true_bearing = 193359,
-    buried_treasure = 199600,
-    broadsides = 193356,
-    vanish = 1856,
-    bribe = 199740,
-    adrenaline_rush = 13750,
-    blade_flurry = 13877,
+        stealth = 1784,
+        cheap_shot = 1833,
+        run_through = 2098,
+        saber_slash = 193315,
+        pistol_shot = 185763,
+        pick_pocket = 921,
+        sap = 6770,
+        between_the_eyes = 199804,
+        ambush = 8676,
+        blind = 2094,
+        riposte = 199754,
+        gouge = 1776,
+        distract = 1725,
+        roll_the_bones = 193316,
+        jolly_roger = 199603,
+        grand_melee = 193358,
+        shark_infested_waters = 193357,
+        true_bearing = 193359,
+        buried_treasure = 199600,
+        broadsides = 193356,
+        vanish = 1856,
+        bribe = 199740,
+        adrenaline_rush = 13750,
+        blade_flurry = 13877,
 
-    ghostly_strike = 196937,
-    grappling_hook = 195457,
-    cheating_death = 45182,
-    cheated_death = 45181,
-    parley = 199743,
-    cannonball_barrage = 185767,
-    alacrity = 193538,
-    killing_spree = 51690,
-    slice_and_dice = 5171,
-    marked_for_death = 137619,
-    death_from_above = 152150,
+        ghostly_strike = 196937,
+        grappling_hook = 195457,
+        cheating_death = 45182,
+        cheated_death = 45181,
+        parley = 199743,
+        cannonball_barrage = 185767,
+        alacrity = 193538,
+        killing_spree = 51690,
+        slice_and_dice = 5171,
+        marked_for_death = 137619,
+        death_from_above = 152150,
 
-    gladiators_medallion = 208683,
-    shiv = 248744,
-    take_your_cut = 198368,
-    dismantle = 207777,
-    plunder_armor = 198529,
+        gladiators_medallion = 208683,
+        shiv = 248744,
+        take_your_cut = 198368,
+        dismantle = 207777,
+        plunder_armor = 198529,
 
-    curse_of_the_dreadblades = 202665,
-    hidden_blade = 202754,
-    loaded_dice = 240837,
+        curse_of_the_dreadblades = 202665,
+        hidden_blade = 202754,
+        loaded_dice = 240837,
 
-    thraxis_tricksy_treads = 137031,
-    greenskins_waterlogged_wristcuffs = 137099,
-    greenskins_waterlogged_wristcuffs_buff = 209423,
-    shivarran_symmetry = 141321,
-    shivarran_symmetry_buff = 226318,
-    the_curse_of_restlessness = 151817,
+        thraxis_tricksy_treads = 137031,
+        greenskins_waterlogged_wristcuffs = 137099,
+        greenskins_waterlogged_wristcuffs_buff = 209423,
+        shivarran_symmetry = 141321,
+        shivarran_symmetry_buff = 226318,
+        the_curse_of_restlessness = 151817,
 
     -- Subtlety
-    eviscerate = 196819,
-    stealth = 1784,
-    cheap_shot = 1833 ,
-    backstab = 53,
-    shuriken_toss = 114014,
-    shadowstrike = 185438,
-    pick_pocket = 921,
-    sap = 6770,
-    nightblade = 195452,
-    shadowstep = 36554,
-    blind = 2094,
-    evasion = 5277,
-    kidney_shot = 408,
-    symbols_of_death = 212283,
-    distract = 1725,
-    shadow_dance = 185313,
-    shadow_dance_buff = 185422,
-    vanish = 1856,
-    shadow_blades = 121471,
-    shuriken_storm = 197835,
-    shuriken_combo = 245640,
+        eviscerate = 196819,
+        stealth = 1784,
+        cheap_shot = 1833 ,
+        backstab = 53,
+        shuriken_toss = 114014,
+        shadowstrike = 185438,
+        pick_pocket = 921,
+        sap = 6770,
+        nightblade = 195452,
+        shadowstep = 36554,
+        blind = 2094,
+        evasion = 5277,
+        kidney_shot = 408,
+        symbols_of_death = 212283,
+        distract = 1725,
+        shadow_dance = 185313,
+        shadow_dance_buff = 185422,
+        vanish = 1856,
+        shadow_blades = 121471,
+        shuriken_storm = 197835,
+        shuriken_combo = 245640,
 
-    gloomblade = 200758,
-    cheating_death = 45182,
-    cheated_death = 45181,
-    alacrity = 193538,
-    marked_for_death = 137619,
-    death_from_above = 152150,
+        gloomblade = 200758,
+        cheating_death = 45182,
+        cheated_death = 45181,
+        alacrity = 193538,
+        marked_for_death = 137619,
+        death_from_above = 152150,
 
-    gladiators_medallion = 208683,
-    shiv = 248744,
-    smoke_bomb = 212182,
-    cold_blood = 213981,
-    shadowy_duel = 207736,
+        gladiators_medallion = 208683,
+        shiv = 248744,
+        smoke_bomb = 212182,
+        cold_blood = 213981,
+        shadowy_duel = 207736,
 
-    goremaws_bite = 209782,
-    finality_eviscerate = 197496,
-    finality_nightblade = 197498,
-    feeding_frenzy = 242705,
+        goremaws_bite = 209782,
+        finality_eviscerate = 197496,
+        finality_nightblade = 197498,
+        feeding_frenzy = 242705,
 
-    the_dreadlords_deceit = 137021,
-    the_dreadlords_deceit_buff_sub = 228224,
-    shadow_satyrs_walk = 137032,
-    denial_of_the_half_giants = 137100,
-    the_first_of_the_dead = 151818,
-    the_first_of_the_dead_buff = 248210,
+        the_dreadlords_deceit = 137021,
+        the_dreadlords_deceit_buff_sub = 228224,
+        shadow_satyrs_walk = 137032,
+        denial_of_the_half_giants = 137100,
+        the_first_of_the_dead = 151818,
+        the_first_of_the_dead_buff = 248210,
 }
 
 -- apbf = 20572
