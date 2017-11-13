@@ -1,4 +1,4 @@
-gx.libraryVer = 15
+gx.libraryVer = 16
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -62,6 +62,25 @@ function gx.poolEnergyFor(spell, cast, unit)
                     gx.printd("Casting "..GetSpellInfo(spell).." after Pooling")
                 end
             end
+        end)
+end
+
+function gx.castThrough(spell, unit, tickTime)
+    if tickTime == 0 then CastSpellByID(spell, unit) return end
+    local name = UnitChannelInfo("player")
+    if not name then cast(spell, unit) return end
+    gx.queueUpCO(function()
+            local _, _, _, _, startTime, endTime = UnitChannelInfo("player")
+            local timeNow = debugprofilestop()
+            if not startTime then return end
+
+            for i = 1, 999 do if startTime + (tickTime*1000)*i > timeNow then startTime = startTime + (tickTime*1000)*i break end end
+            if startTime > endTime then startTime = endTime end
+            
+            while (timeNow < startTime) do timeNow = debugprofilestop(); coroutine.yield(); gx.printd(timeNow >= startTime, "Casting "..GetSpellInfo(spell).." after next tick of "..name..".") end
+            -- CastSpellByID(spell, unit)
+            SpellStopCasting()
+            cast(spell, unit)
         end)
 end
 
@@ -225,11 +244,11 @@ gxMGB = {
     spellsteal = 30449,
 
     -- Fire
-    fireblast = 108853,
+    fire_blast = 108853,
     fireball = 133,
     pyroblast = 11366,
     heating_up = 48107,
-    hot_streak = 195283,
+    hot_streak = 48108,
     scorch = 2948,
     flamestrike = 2120,
     blazing_barrier = 235313,
@@ -251,6 +270,9 @@ gxMGB = {
     phoenixs_flames = 194466,
 
     koralons_burning_touch = 132454,
+    marquee_bindings_of_the_sun_king = 132406,
+    kaelthass_ultimate_ability = 209455,
+    darcklis_dragonfire_diadem = 132863,
 }
 
 gxMKB = {
@@ -500,6 +522,74 @@ gxRB = {
         denial_of_the_half_giants = 137100,
         the_first_of_the_dead = 151818,
         the_first_of_the_dead_buff = 248210,
+}
+
+gxWLB = {
+    summon_imp = 688,
+    fear = 5782,
+    create_healthstone = 6201,
+    summon_voidwalker = 697,
+    health_funnel = 755,
+    eye_of_kilrogg = 126,
+    unending_breath = 5697,
+    summon_succubus = 712,
+    banish = 710,
+    summon_felhunter = 691,
+    command_demon = 119898,
+    ritual_of_summoning = 698,
+    soulstone = 20707,
+    summon_doomguard = 18540,
+    unending_resolve = 104773,
+    enslave_demon = 1098,
+    summon_infernal = 1122,
+    create_soulwell = 29893,
+    demonic_gateway = 111771,
+
+    pillars_of_the_dark_portal = 132357,
+    soul_of_the_netherlord = 151649,
+    the_master_harvester = 151821,
+
+    -- Affliction
+    shadow_bolt = 232670,
+    corruption = 172,
+    corruption_debuff = 146739,
+    life_tap = 1454,
+    agony = 980,
+    drain_soul = 198590,
+    unstable_affliction = 30108,
+    seed_of_corruption = 27243,
+
+    haunt = 48181,
+    absolute_corruption = 0,
+    empowered_life_tap = 235156,
+    demonic_circle = 48018,
+    mortal_coil = 6789,
+    howl_of_terror = 5484,
+    phantom_singularity = 205179,
+    soul_harvest = 196098,
+    burning_rush = 111400,
+    dark_pact = 108416,
+    summon_doomguard_supremacy = 157757,
+    summon_infernal_supremacy = 157898,
+    grimoire_imp = 111859,
+    grimoire_voidwalker = 111895,
+    grimoire_succubus = 111896,
+    grimoire_felhunter = 111897,
+    grimoire_of_sacrifice = 108503,
+    siphon_life = 63106,
+
+    -- Honor Talents
+
+    reap_souls = 216698,
+    tormented_souls = 216695,
+    deadwind_harvester = 216708,
+    compounding_horro = 199281,
+
+    sacrolashs_dark_strike = 132378,
+    power_cord_of_lethtendris = 132457,
+    stretens_sleepless_shackles = 132381,
+    hood_of_eternal_disdain = 132394,
+    reap_and_sow = 144364,
 }
 
 -- apbf = 20572
