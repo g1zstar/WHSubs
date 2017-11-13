@@ -1,4 +1,4 @@
-gx.libraryVer = 16
+gx.libraryVer = 18
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -229,8 +229,188 @@ function gx.startMoving(movingTable)
     -- end
 end
 
+gxDKB = {
+    frost_breath = 190780,
+    corse_explosion = 127344,
+    death_gate = 50977,
+    death_grip = 49576,
+    death_strike = 49998,
+    unholy_strength = 53365,
+    razorice = 51715,
+    runeforging = 53428,
+    anti_magic_shell = 48707,
+    dark_command = 56222,
+    mind_freeze = 47528,
+    path_of_frost = 3714,
+    coontrol_undead = 111673,
+    raise_ally = 61999,
+
+    acherus_drapes = 132376,
+    soul_of_the_deathlord = 151640,
+
+    -- Blood
+    -- Frost
+
+    -- Unholy
+    festering_wound = 194310,
+    runic_corruption = 51460,
+    death_coil = 47541,
+    festering_strike = 85948,
+    outbreak = 77575,
+    virulent_plague = 191587,
+    raise_dead = 46584,
+    scourge_strike = 55090,
+    death_and_decay = 43265,
+    death_and_decay = 188290,
+    icebound_fortitude = 48792,
+    dark_succor = 101568,
+    wraith_walk = 212552,
+    chains_of_ice = 45524,
+    sudden_doom = 81340,
+    dark_transformation = 63560,
+    summon_gargoyle = 49206,
+    army_of_the_dead = 42650,
+
+    -- Honor Talents
+
+    apocalypse = 220143,
+    scourge_of_the_worlds = 191748,
+
+    cold_heart = 151796,
+    cold_heart_buff = 235599,
+    taktheritrixs_shoulderpads = 137075,
+    draugr_girdle_of_the_everlasting_king = 132441,
+    uvanimor_the_unbeautiful = 137037,
+    the_instructors_fourth_lesson = 132448,
+    death_march = 144280,
+}
+
 gxDHB = {
+    blade_dance = 188499,
+    blur = 198589,
+    blur_buff = 212800,
+    chaos_nova = 179057,
+    chaos_strike = 162794,
+    consume_magic = 183752,
+    eye_beam = 198013,
+    fel_rush = 195072,
+    glide = 131347,
+    imprison = 217832,
+    metamorphosis = 191427,
+    metamorphosis_buff = 162264,
+    soul_carver = 214743,
+    spectral_sight = 188501,
+    throw_glaive = 185123,
+    vengeful_retreat = 198793,
+
     soul_of_the_slayer = 151639,
+
+    -- Havoc
+    demons_bite = 162243,
+    darkness = 196718,
+    
+    felblade = 232893,
+    prepared = 203650,
+    netherwalk = 196555,
+    momentum = 208628,
+    fel_eruption = 211881,
+    nemesis = 206491,
+    chaos_blades = 247938,
+    fel_barrage = 211053,
+
+    -- Honor Talents
+
+    fury_of_the_illidari = 201467,
+    anguish = 202443,
+
+    -- Vengeance
+}
+
+gxDRB = {
+    moonfire = 8921,
+    regrowth = 8936,
+    cat_form = 768,
+    dash = 1850,
+    bear_form = 5487,
+    enraged_maul = 236716,
+    growl = 6795,
+    dreamwalk = 193753,
+    revive = 50769,
+    teleport_moonglade = 18960,
+    sunfire = 164815,
+    travel_form = 783,
+    entangling_roots = 339,
+    charm_woodland_creature = 127757,
+    flap = 164862,
+    stag_form = 210053,
+    rebirth = 20484,
+    flight_form = 165962,
+
+    ekowraith_creator_of_worlds = 137015,
+    soul_of_the_archdruid = 151636,
+
+    -- Balance
+
+    -- Feral
+    ferocious_bite = 22568,
+    shred = 5221,
+    rake = 1822,
+    rake_debuff = 155722,
+    thrash = 106832,
+    thrash_debuff = 106830,
+    tigers_fury = 5217,
+    prowl = 5215,
+    rip = 1079,
+    remove_corruption = 2782,
+    swipe = 213764,
+    survival_instincts = 61336,
+    berserk = 106951,
+    clearcasting = 135700,
+    stampeding_roar = 106898,
+    infected_wounds = 58180,
+    maim = 22570,
+    skull_bash = 106839,
+    predatory_swiftness = 69369,
+
+    renewal = 108238,
+    displacer_beast = 102280,
+    wild_charge = 132302, --?
+    -- balance_affinity
+    -- guardian_affinity
+    -- restoration_affinity
+    mighty_bash = 5211,
+    mass_entanglement = 102359,
+    typhoon = 132469,
+    incarnation_king_of_the_jungle = 102543,
+    brutal_slash = 202028,
+    savage_roar = 52610,
+    bloodtalons = 145152,
+    elunes_guidance = 202060,
+
+    -- Honor Talents
+
+    ashamanes_frenzy = 210722,
+    fury_of_ashamane = 240670,
+
+    chatoyant_signet = 137040,
+    ailuro_pouncers = 137024,
+    the_wildshapers_clutch = 137094,
+    fiery_red_maimers = 144354,
+    fiery_red_maimers_buff = 236757,
+    behemoth_headdress = 151801,
+    luffa_wrappings = 137056,
+
+    apex_predator = 252752, -- T214PC
+
+    -- Guardian
+    -- Restoration
+}
+
+gxHB = {
+
+    -- Beast Mastery
+    -- Marksman
+    -- Survival
 }
 
 gxMGB = {
@@ -242,6 +422,8 @@ gxMGB = {
     ice_block = 45438,
     water_jet = 135029,
     spellsteal = 30449,
+
+    -- Arcane
 
     -- Fire
     fire_blast = 108853,
@@ -273,6 +455,8 @@ gxMGB = {
     marquee_bindings_of_the_sun_king = 132406,
     kaelthass_ultimate_ability = 209455,
     darcklis_dragonfire_diadem = 132863,
+
+    -- Frost
 }
 
 gxMKB = {
@@ -290,6 +474,8 @@ gxMKB = {
     transcendence = 101643,
     transcendence_transfer = 119996,
 
+    -- Brewmaster
+    -- Mistweaver
     -- Windwalker
     effuse = 116694,
     rising_sun_kick = 107428,
@@ -346,6 +532,20 @@ gxMKB = {
     the_wind_blows = 151811,
 
     pressure_point = 247255, -- tier 20 4pc
+}
+
+gxPDB = {
+
+    -- Holy
+    -- Protection
+    -- Retribution
+}
+
+gxPRB = {
+
+    -- Discipline
+    -- Holy
+    -- Shadow
 }
 
 gxRB = {
@@ -524,6 +724,13 @@ gxRB = {
         the_first_of_the_dead_buff = 248210,
 }
 
+gxSB = {
+
+    -- Elemental
+    -- Enhancement
+    -- Restoration
+}
+
 gxWLB = {
     summon_imp = 688,
     fear = 5782,
@@ -590,6 +797,52 @@ gxWLB = {
     stretens_sleepless_shackles = 132381,
     hood_of_eternal_disdain = 132394,
     reap_and_sow = 144364,
+
+    -- Demonology
+    -- Destruction
+}
+
+gxWRB = {
+    charge = 100,
+    taunt = 355,
+    heroic_throw = 57755,
+    pummel = 6552,
+    heroic_leap = 6544,
+
+    -- Arms
+
+    -- Fury
+
+    -- Protection
+    victory_rush = 34428,
+    devastate = 20243,
+    shield_slam = 23922,
+    thunder_clap = 6343,
+    shield_block = 2565,
+    shield_block_buff = 132404,
+    revenge = 6572,
+    revenge_buff = 5302,
+    intercept = 198304,
+    last_stand = 12975,
+    ignore_pain = 190456,
+    berserker_rage = 18499,
+    demoralizing_shout = 1160,
+    battle_cry = 1719,
+    shield_wall = 871,
+    spell_reflection = 23920,
+
+    shockwave = 46968,
+    storm_bolt = 107570,
+    impending_victory = 202168,
+    avatar = 107574,
+    vengeance_revenge = 202573,
+    vengeance_ignore_pain = 202574,
+    ravager = 228920,
+
+    -- Honor Talents
+
+    neltharions_fury = 203524,
+    dragon_scales = 203581,
 }
 
 -- apbf = 20572
