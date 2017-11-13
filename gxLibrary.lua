@@ -1,4 +1,4 @@
-gx.libraryVer = 14
+gx.libraryVer = 15
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -51,7 +51,7 @@ end
 
 function gx.poolEnergyFor(spell, cast, unit)
     gx.queueUpCO(function()
-            while (not castable(spell)) do
+            while (not castable(spell) and gx.notEnoughEnergyFor(spell)) do
                 coroutine.yield()
                 gx.printd("Pooling for "..GetSpellInfo(spell))
             end
@@ -212,6 +212,45 @@ end
 
 gxDHB = {
     soul_of_the_slayer = 151639,
+}
+
+gxMGB = {
+    frost_nova = 122,
+    conjure_refreshment = 190336,
+    blink = 1953,
+    counterspell = 2139,
+    slow_fall = 130,
+    ice_block = 45438,
+    water_jet = 135029,
+    spellsteal = 30449,
+
+    -- Fire
+    fireblast = 108853,
+    fireball = 133,
+    pyroblast = 11366,
+    heating_up = 48107,
+    hot_streak = 195283,
+    scorch = 2948,
+    flamestrike = 2120,
+    blazing_barrier = 235313,
+    dragons_breath = 31661,
+    combustion = 190319,
+    invisibility = 66,
+
+    shimmer = 212653,
+    blast_wave = 157981,
+    mirror_image = 55342,
+    rune_of_power = 116011,
+    rune_of_power_buff = 116014,
+    incanters_flow = 116267,
+    ring_of_frost = 113724,
+    living_bomb = 44457,
+    cinderstorm = 198929,
+    meteor = 153561,
+
+    phoenixs_flames = 194466,
+
+    koralons_burning_touch = 132454,
 }
 
 gxMKB = {
