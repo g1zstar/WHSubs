@@ -1,4 +1,4 @@
-gx.libraryVer = 21
+gx.libraryVer = 22
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -110,6 +110,21 @@ function gx.queueUpFailedCast(self, event, unitID, spell, rank, lineID, spellID)
 end
 queueFrame:SetScript("OnEvent", gx.queueUpFailedCast)
 
+local sephuzs_cd = 0
+local icdFrame = CreateFrame("Frame")
+icdFrame:RegisterEvent("UNIT_AURA")
+local function setICDs(self, event, unit)
+    if UnitIsUnit("player", unit) then
+        local _, _, _, _, _, duration, expires = UnitBuff("player", GetSpellInfo(208052))
+        if duration then sephuzs_cd = expires - duration + 30 end
+    end
+end
+icdFrame:SetScript("OnEvent", setICDs)
+
+function gx.sephuzsAvailable()
+    return GetTime() > sephuzs_cd
+end
+
 local externals = {
     102342, -- ironbark
     116849, -- life cocoon
@@ -133,7 +148,6 @@ local externals = {
     -- healing tide totem
     -- ancestral protection totem
     -- commanding shout
-
 }
 function gx.externalOnUs()
     for i = 1, math.huge do
