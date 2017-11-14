@@ -1,4 +1,4 @@
-gx.libraryVer = 18
+gx.libraryVer = 19
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -904,7 +904,7 @@ gxGB = {
     convergence_of_fates = 140806,
 }
 
-local idsList = {"gxMKB", "gxRB"}
+local idsList = {"gxDRB", "gxMKB", "gxRB"}
 for _,v in pairs(idsList) do
     for r,c in pairs(gxGB) do
         _G[v][r] = c
