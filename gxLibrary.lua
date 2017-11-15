@@ -1,4 +1,4 @@
-gx.libraryVer = 22
+gx.libraryVer = 23
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -758,6 +758,7 @@ gxRB = {
 
         elaborate_planning = 193641,
         hemorrhage = 16511,
+        subterfuge = 115192,
         leeching_poison = 108211,
         cheating_death = 45182,
         cheated_death = 45181,
@@ -862,6 +863,7 @@ gxRB = {
         shuriken_combo = 245640,
     
         gloomblade = 200758,
+        subterfuge = 115192,
         cheating_death = 45182,
         cheated_death = 45181,
         alacrity = 193538,
