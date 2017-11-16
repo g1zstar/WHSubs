@@ -1,4 +1,4 @@
-gx.libraryVer = 23
+gx.libraryVer = 24
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -21,7 +21,7 @@ local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
     if func then table.insert(coTable, func) return end
-    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= "continue" then WriteFile(GetHackDirectory().."\\gxError.txt", table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
+    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= "continue" and message ~= "true" then --[[WriteFile]]error(--[[GetHackDirectory().."\\gxError.txt",]] table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
 end
 function gx.emptyCO()
@@ -580,8 +580,10 @@ gxMGB = {
     
         koralons_burning_touch = 132454,
         marquee_bindings_of_the_sun_king = 132406,
-        kaelthass_ultimate_ability = 209455,
+        kaelthas_ultimate_ability = 209455,
         darcklis_dragonfire_diadem = 132863,
+        contained_infernal_core = 151809,
+        erupting_infernal_core = 248147,
     },
 
     -- Frost
