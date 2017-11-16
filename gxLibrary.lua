@@ -1,4 +1,4 @@
-gx.libraryVer = 25
+gx.libraryVer = 26
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -21,7 +21,7 @@ local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
     if func then table.insert(coTable, func) return end
-    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= "continue" --[[and message ~= "true"]] then print(message) WriteFile--[[error]](GetHackDirectory().."\\gxError.txt", table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
+    if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= nil and message ~= "continue" --[[and message ~= "true"]] then --[[WriteFile]]error(--[[GetHackDirectory().."\\gxError.txt",]] table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
 end
 function gx.emptyCO()
