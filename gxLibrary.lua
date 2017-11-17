@@ -583,9 +583,10 @@ gxMGB = {
         phoenixs_flames = 194466,
     
         koralons_burning_touch = 132454,
+        darcklis_dragonfire_diadem = 132863,
         marquee_bindings_of_the_sun_king = 132406,
         kaelthas_ultimate_ability = 209455,
-        darcklis_dragonfire_diadem = 132863,
+        pyrotex_ignition_cloth = 144355,
         contained_infernal_core = 151809,
         erupting_infernal_core = 248147,
     },
@@ -629,6 +630,17 @@ gxMGB = {
         chain_reaction = 195418,
         chilled_to_the_core = 195446,
         freezing_rain = 240555,
+
+        lady_vashjs_grasp = 132411,
+        lady_vashjs_grasp_buff = 208147,
+        magtheridons_banished_bracers = 138140,
+        magtheridons_might = 214404,
+        zannesu_journey = 133970,
+        zannesu_journey_buff = 226852,
+        ice_time = 144260,
+        shattered_fragments_of_sindragosa = 151810,
+        shattered_fragments_of_sindragosa_buff = 248176,
+        rage_of_the_frost_wyrm = 248177,
     },
 }
 insertGeneral = {
@@ -640,6 +652,11 @@ insertGeneral = {
     ice_block = 45438,
     water_jet = 135029,
     spellsteal = 30449,
+
+    shard_of_the_exodar = 132410,
+    belovirs_final_stand = 133977,
+    belovirs_final_stand_buff = 207283,
+    soul_of_the_archmage = 151642,
 }
 for i = 1, 3 do
     for j = 1, #insertGeneral do
