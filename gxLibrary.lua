@@ -1,4 +1,4 @@
-gx.libraryVer = 27
+gx.libraryVer = 28
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
