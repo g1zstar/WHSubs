@@ -1,4 +1,4 @@
-gx.libraryVer = 28
+gx.libraryVer = 29
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -599,9 +599,9 @@ gxMGB = {
         summon_water_elemental = 31687,
         blizzard = 190356,
         flurry = 44614,
-        fingers_of_frost = 0,
+        fingers_of_frost = 44544,
         ice_barrier = 11426,
-        brain_freeze = 0,
+        brain_freeze = 190446,
         freeze = 231596,
         cone_of_cold = 120,
         icy_veins = 12472,
@@ -609,17 +609,16 @@ gxMGB = {
         cold_snap = 235219,
         frozen_orb = 84714,
         water_jet = 231598,
-        icicles = 0,
+        icicles = 205473,
         
         ray_of_frost = 205021,
-        lonely_winter = 0,
         bone_chilling = 205766,
         shimmer = 212653,
         ice_floes = 108839,
         mirror_image = 55342,
         rune_of_power = 116011,
-        rune_of_power_buff = 0,
-        incanters_flow = 0,
+        rune_of_power_buff = 116014,
+        incanters_flow = 116267,
         ice_nova = 157997,
         ring_of_frost = 113724,
         frost_bomb = 112948,
