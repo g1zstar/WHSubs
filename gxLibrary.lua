@@ -1,4 +1,4 @@
-gx.libraryVer = 26
+gx.libraryVer = 27
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -172,6 +172,10 @@ function gx.talent(r, c, b)
     else
         return player.talent(r, c) and 1 or 0
     end
+end
+
+function gx.execute_time(spell)
+    return math.max(player.spell(spell).castingtime, math.max((1.5/(1+GetHaste()*.01)), 0.75))
 end
 
 local brokenIslesIDs = {--[[BrokenIsles =]] 1007, --[[Aszuna =]] 1015, --[[BrokenShore =]] 1021, --[[Dalaran =]] 1014, --[[EyeOfAzshara =]] 1098, --[[Highmountain =]] 1024, --[[Stormheim =]] 1017, --[[Suramar =]] 1033, --[[Valsharah =]] 1018,
@@ -587,7 +591,45 @@ gxMGB = {
     },
 
     -- Frost
-    {},
+    {
+        frostbolt = 116,
+        fire_blast = 108853,
+        ice_lance = 30455,
+        summon_water_elemental = 31687,
+        blizzard = 190356,
+        flurry = 44614,
+        fingers_of_frost = 0,
+        ice_barrier = 11426,
+        brain_freeze = 0,
+        freeze = 231596,
+        cone_of_cold = 120,
+        icy_veins = 12472,
+        invisibility = 66,
+        cold_snap = 235219,
+        frozen_orb = 84714,
+        water_jet = 231598,
+        icicles = 0,
+        
+        ray_of_frost = 205021,
+        lonely_winter = 0,
+        bone_chilling = 205766,
+        shimmer = 212653,
+        ice_floes = 108839,
+        mirror_image = 55342,
+        rune_of_power = 116011,
+        rune_of_power_buff = 0,
+        incanters_flow = 0,
+        ice_nova = 157997,
+        ring_of_frost = 113724,
+        frost_bomb = 112948,
+        glacial_spike = 199786,
+        comet_storm = 153595,
+
+        ebonbolt = 214634,
+        chain_reaction = 195418,
+        chilled_to_the_core = 195446,
+        freezing_rain = 240555,
+    },
 }
 insertGeneral = {
     frost_nova = 122,
