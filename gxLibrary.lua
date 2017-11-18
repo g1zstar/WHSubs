@@ -1,4 +1,4 @@
-gx.libraryVer = 34
+gx.libraryVer = 35
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -364,8 +364,8 @@ insertGeneral = {
     soul_of_the_deathlord = 151640,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxDKB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxDKB[i][k] = v
     end
 end
 
@@ -414,8 +414,8 @@ insertGeneral = {
     soul_of_the_slayer = 151639,
 }
 for i = 1, 2 do
-    for j = 1, #insertGeneral do
-        table.insert(gxDHB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxDHB[i][k] = v
     end
 end
 
@@ -505,8 +505,8 @@ insertGeneral = {
     soul_of_the_archdruid = 151636,
 }
 for i = 1, 4 do
-    for j = 1, #insertGeneral do
-        table.insert(gxDRB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxDRB[i][k] = v
     end
 end
 
@@ -567,8 +567,8 @@ insertGeneral = {
     call_pet_five = 83245,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxHB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxHB[i][k] = v
     end
 end
 
@@ -681,8 +681,8 @@ insertGeneral = {
     soul_of_the_archmage = 151642,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxMGB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxMGB[i][k] = v
     end
 end
 
@@ -768,8 +768,8 @@ insertGeneral = {
     transcendence_transfer = 119996,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxMKB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxMKB[i][k] = v
     end
 end
 
@@ -787,8 +787,8 @@ insertGeneral = {
 
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxPDB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxPDB[i][k] = v
     end
 end
 
@@ -806,8 +806,8 @@ insertGeneral = {
 
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxPRB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxPRB[i][k] = v
     end
 end
 
@@ -993,8 +993,8 @@ insertGeneral = {
     thistle_tea_vault = 139586,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxRB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxRB[i][k] = v
     end
 end
 
@@ -1012,8 +1012,8 @@ insertGeneral = {
 
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxSB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxSB[i][k] = v
     end
 end
 
@@ -1185,8 +1185,8 @@ insertGeneral = {
     the_master_harvester = 151821,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxWLB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxWLB[i][k] = v
     end
 end
 
@@ -1338,8 +1338,8 @@ insertGeneral = {
     soul_of_the_battlelord = 151650,
 }
 for i = 1, 3 do
-    for j = 1, #insertGeneral do
-        table.insert(gxWRB[i], j, insertGeneral[j])
+    for k,v in pairs(insertGeneral) do
+        gxWRB[i][k] = v
     end
 end
 
