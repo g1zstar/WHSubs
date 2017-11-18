@@ -1,4 +1,4 @@
-gx.libraryVer = 31
+gx.libraryVer = 32
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -118,10 +118,10 @@ local function setICDs(self, event, unit)
         local _, _, _, _, _, duration, expires = UnitBuff("player", GetSpellInfo(208052))
         if duration then sephuzs_cd = expires - duration + 30 end
       
-        local SPIRIT_REALM = GetSpellInfo(235621)
-        local playerRealm = UnitDebuff("player", SPIRIT_REALM)
-        local unitRealm = UnitDebuff(target, SPIRIT_REALM)
-        gx.printd("Constant Realm is ", SPIRIT_REALM, ". Player Realm is ", playerRealm, " Target Realm is ", unitRealm, "Realms Match: ", playerRealm == unitRealm)
+        -- local SPIRIT_REALM = GetSpellInfo(235621)
+        -- local playerRealm = UnitDebuff("player", SPIRIT_REALM)
+        -- local unitRealm = UnitDebuff(target, SPIRIT_REALM)
+        -- gx.printd("Constant Realm is ", SPIRIT_REALM, ". Player Realm is ", playerRealm, " Target Realm is ", unitRealm, "Realms Match: ", playerRealm == unitRealm)
     end
 end
 icdFrame:SetScript("OnEvent", setICDs)
