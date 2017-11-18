@@ -1,4 +1,4 @@
-gx.libraryVer = 32
+gx.libraryVer = 33
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -43,6 +43,19 @@ function gx.printd(...)
     local tableS = {...}
     for k,v in pairs(tableS) do tableS[k] = tostring(v) end
     if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..table.concat(tableS, ", ")) end
+end
+
+local costFrame = CreateFrame("GameTooltip", nil, "costFrame", "GameTooltipTemplate")
+costFrame:SetOwner(UIParent, "ANCHOR_NONE")
+function gx.getCost(spell)
+    costFrame:ClearLines()
+    costFrame:SetSpellByID(spell)
+    costFrame:SetAlpha(0)
+
+    local text = _G["costFrameTextLeft2"]:GetText()
+    local match = string.match(text, "%d+%p*%s*%d*%p*%s*%d*%p*%s*%d*")
+    if not match then match = 0 end
+    return tonumber(match)
 end
 
 function gx.notEnoughEnergyFor(spell)
