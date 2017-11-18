@@ -1,4 +1,4 @@
-gx.libraryVer = 33
+gx.libraryVer = 34
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -45,9 +45,12 @@ function gx.printd(...)
     if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..table.concat(tableS, ", ")) end
 end
 
-local costFrame = CreateFrame("GameTooltip", nil, "costFrame", "GameTooltipTemplate")
-costFrame:SetOwner(UIParent, "ANCHOR_NONE")
+
 function gx.getCost(spell)
+    if not costFrame then 
+        local costFrame = CreateFrame("GameTooltip", nil, "costFrame", "GameTooltipTemplate")
+        costFrame:SetOwner(UIParent, "ANCHOR_NONE")
+    end
     costFrame:ClearLines()
     costFrame:SetSpellByID(spell)
     costFrame:SetAlpha(0)
