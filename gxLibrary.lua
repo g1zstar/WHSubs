@@ -1,4 +1,4 @@
-gx.libraryVer = 29
+gx.libraryVer = 31
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -645,6 +645,8 @@ gxMGB = {
         shattered_fragments_of_sindragosa = 151810,
         shattered_fragments_of_sindragosa_buff = 248176,
         rage_of_the_frost_wyrm = 248177,
+
+        frozen_mass = 242253,
     },
 }
 insertGeneral = {
@@ -844,7 +846,7 @@ gxRB = {
         zoldyck_family_training_shackles = 137098,
         the_empty_crown = 151815,
         the_dreadlords_deceit = 137021,
-        the_dreadlords_deceit_buff_assn = 208693,
+        the_dreadlords_deceit_buff = 208693,
     },
 
     -- Outlaw
@@ -946,7 +948,7 @@ gxRB = {
         feeding_frenzy = 242705,
     
         the_dreadlords_deceit = 137021,
-        the_dreadlords_deceit_buff_sub = 228224,
+        the_dreadlords_deceit_buff = 228224,
         shadow_satyrs_walk = 137032,
         denial_of_the_half_giants = 137100,
         the_first_of_the_dead = 151818,
@@ -1045,12 +1047,103 @@ gxWLB = {
     },
 
     -- Demonology
-    {},
+    {
+        shadow_bolt = 686,
+        life_tap = 1454,
+        hand_of_guldan = 105174,
+        demonic_empowerment = 193396,
+        drain_life = 234153,
+        call_dreadstalkers = 104316,
+        doom = 603,
+        summon_felguard = 30146,
+        demonwrath = 193440,
+
+        shadowflame = 205181,
+        demonic_calling = 205146,
+        implosion = 196277,
+        demonic_circle = 48018,
+        mortal_coil = 6789,
+        shadowfury = 30283,
+        soul_harvest = 196098,
+        burning_rush = 111400,
+        dark_pact = 108416,
+        summon_doomguard_supremacy = 157757,
+        summon_infernal_supremacy = 157898,
+        grimoire_imp = 111859,
+        grimoire_voidwalker = 111895,
+        grimoire_succubus = 111896,
+        grimoire_felhunter = 111897,
+        demonic_synergy = 171982,
+        summon_darkglare = 205180,
+        demonbolt = 157695,
+
+        thalkiels_consumption = 211714,
+        stolen_power = 0,
+        the_expendables = 0,
+        jaws_of_shadow = 0,
+
+        kazzaks_final_curse = 132374,
+        wilfreds_sigil_of_superior_summoning = 132369,
+        recurrent_ritual = 132393,
+        sindorei_spite = 132379,
+        sindorei_spite_buff = 208871,
+        wakeners_loyalty = 144385,
+        wakeners_loyalty_buff = 236200,
+    },
 
     -- Destruction
-    {},
+    {
+        shadow_bolt = 686,
+        life_tap = 1454,
+        conflagrate = 17962,
+        immolate = 348,
+        immolate_debuff = 0,
+        chaos_bolt = 116858,
+        drain_life = 234153,
+        incinerate = 29722,
+        rain_of_fire = 5740,
+        havoc = 80240,
+        
+        backdraft = 0,
+        roaring_blaze = 0,
+        shadowburn = 17877,
+        eradication = 196414,
+        empowered_life_tap = 235156,
+        demonic_circle = 48018,
+        mortal_coil = 6789,
+        shadowfury = 30283,
+        cataclysm = 152108,
+        soul_harvest = 196098,
+        burning_rush = 111400,
+        dark_pact = 108416,
+        summon_doomguard_supremacy = 157757,
+        summon_infernal_supremacy = 157898,
+        grimoire_imp = 111859,
+        grimoire_voidwalker = 111895,
+        grimoire_succubus = 111896,
+        grimoire_felhunter = 111897,
+        grimoire_of_sacrifice = 108503,
+        channel_demonfire = 196447,
+
+        dimensional_rift = 196586,
+        conflagration_of_chaos = 196546,
+        devourer_of_life = 0,
+        eternal_struggle = 0,
+        lord_of_flames = 0,
+        planeswalker = 196674,
+
+        alythess_pyrogenics = 132460,
+        alythess_pyrogenics_debuff = 205675,
+        odr_shadow_of_the_ymirjar = 132375,
+        feretory_of_souls = 132456,
+        magistrike_restraints = 132407,
+        lessons_of_space_time = 144369,
+        lessons_of_space_time_buff = 236176,
+    },
 }
 insertGeneral = {
+    blood_fury = 33072,
+    
     summon_imp = 688,
     fear = 5782,
     create_healthstone = 6201,
@@ -1165,6 +1258,9 @@ gxWRB = {
         berserking_fury_artifact = 200953,
         sense_death = 200979,
     
+        ayalas_stone_heart = 137052,
+        stone_heart = 225947,
+        najentuss_vertebrae = 137087,
         ceann_ar_charger = 137088,
         kazzalax_fujiedas_fury = 137053,
         fujiedas_fury = 207776,
@@ -1202,9 +1298,19 @@ gxWRB = {
     
         neltharions_fury = 203524,
         dragon_scales = 203581,
+
+        thundergods_vigor = 137089,
+        the_walls_fell = 137054,
+        kakushans_stormscale_gauntlets = 137108,
+        kakushans_stormscale_gauntlets_buff = 207844,
+        destiny_driver = 137018,
+        destiny_driver_buff = 215157,
+        ararats_bloodmirror = 151822,
     },
 }
 insertGeneral = {
+    blood_fury = 20572,
+
     charge = 100,
     taunt = 355,
     heroic_throw = 57755,
@@ -1277,6 +1383,8 @@ gxGB = {
     -- rethus_incessant_courage_buff2 = 146667,
 
     convergence_of_fates = 140806,
+    ring_of_collapsing_futres = 142173,
+    temptation = 234143,
 }
 
 local idsList = {"gxDKB", "gxDHB", "gxDRB", "gxHB", "gxMGB", "gxMKB", "gxPDB", "gxPRB", "gxRB", "gxSB", "gxWLB", "gxWRB"}
