@@ -1,4 +1,4 @@
-gx.libraryVer = 38
+gx.libraryVer = 39
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -71,7 +71,7 @@ function gx.poolEnergyFor(spell, castAfter, unit)
                 coroutine.yield()
                 gx.printd("Pooling for "..GetSpellInfo(spell))
             end
-            if castAfter then
+            if castAfter and UnitExists(unit.unitID) and not UnitIsDeadOrGhost(unit.unitID) then
                 while (player.spell(spell).cooldown == 0 and player.spell(61304).cooldown == 0) do
                     cast(spell, unit)
                     coroutine.yield()
