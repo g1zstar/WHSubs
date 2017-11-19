@@ -1,4 +1,4 @@
-gx.libraryVer = 35
+gx.libraryVer = 36
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -48,7 +48,7 @@ end
 
 function gx.getCost(spell)
     if not costFrame then 
-        local costFrame = CreateFrame("GameTooltip", nil, "costFrame", "GameTooltipTemplate")
+        local costFrame = CreateFrame("GameTooltip", "costFrame", nil, "GameTooltipTemplate")
         costFrame:SetOwner(UIParent, "ANCHOR_NONE")
     end
     costFrame:ClearLines()
@@ -1003,13 +1003,78 @@ gxSB = {
     {},
 
     -- Enhancement
-    {},
+    {
+        lightning_bolt = 187837,
+        healing_surge = 188070,
+        lava_lash = 60103,
+    },
 
     -- Restoration
-    {},
+    {
+        lightning_bolt = 403,
+        flame_shock = 188838,
+        healing_surge = 8004,
+        riptide = 61295,
+        lava_burst = 51505,
+        healing_stream_totem = 5394,
+        wind_shear = 57994,
+        chain_heal = 1064,
+        purify_spirit = 77130,
+        healing_wave = 77472,
+        chain_lightning = 421,
+        tidal_waves = 0,
+        spiritwalkers_grace = 79206,
+        healing_rain = 73920,
+        spirit_link_totem = 98008,
+        ancestral_vision = 212048,
+        healing_tide_totem = 108280,
+
+        undulation = 0,
+        unleash_life = 73685,
+        gust_of_wind = 192063,
+        wind_rush_totem = 192077,
+        lightning_surge_totem = 192058,
+        earthgrab_totem = 51485,
+        voodoo_totem = 196932,
+        ancestral_guidance = 108281,
+        ancestral_protection_totem = 207399,
+        earthen_shield_totem = 198838,
+        ancestral_vigor = 207400,
+        cloudburst_totem = 157153,
+        echo_of_the_elements = 108283,
+        ascendance = 114052,
+        wellspring = 197995,
+
+        focuser_of_jonat_the_elder = 137051,
+        jonats_focus = 210607,
+        intact_nazjatar_molting = 137085,
+        elemental_rebalancers = 137036,
+        praetorians_tidecallers = 137058,
+        nobundos_redemption = 137104,
+        nobundos_redemption_buff = 208764,
+        fire_in_the_deep = 151785,
+    },
 }
 insertGeneral = {
+    earthbind_totem = 2484,
+    farsight = 6196,
+    ancestral_spirit = 2008,
+    ghost_wolf = 2645,
+    reincarnation = 0,
+    waterwalking = 546,
+    hex_spider = 211004,
+    hex_cockroach = 211015,
+    hex_compy = 210873,
+    hex_snake = 211010,
+    hex = 51514, -- frog
+    astral_recall = 556,
+    bloodlust = 2825,
+    heroism = 32182,
+    astral_shift = 108271,
+    purge = 370,
 
+    uncertain_reminder = 143732,
+    soul_of_the_farseer = 151647,
 }
 for i = 1, 3 do
     for k,v in pairs(insertGeneral) do
@@ -1060,6 +1125,9 @@ gxWLB = {
         stretens_sleepless_shackles = 132381,
         hood_of_eternal_disdain = 132394,
         reap_and_sow = 144364,
+
+        demonic_speed = 242292,
+        tormented_agony = 252938,
     },
 
     -- Demonology
@@ -1105,6 +1173,8 @@ gxWLB = {
         sindorei_spite_buff = 208871,
         wakeners_loyalty = 144385,
         wakeners_loyalty_buff = 236200,
+
+        dreaded_haste = 246962,
     },
 
     -- Destruction
@@ -1155,6 +1225,9 @@ gxWLB = {
         magistrike_restraints = 132407,
         lessons_of_space_time = 144369,
         lessons_of_space_time_buff = 236176,
+
+        embrace_chaos = 212019,
+        chaotic_flames = 253092,
     },
 }
 insertGeneral = {
@@ -1233,6 +1306,7 @@ gxWRB = {
         stone_heart = 225947,
         najentuss_vertebrae = 137087,
 
+        war_veteran = 253382,
         weighted_blade = 253383,
     },
 
@@ -1281,6 +1355,10 @@ gxWRB = {
         kazzalax_fujiedas_fury = 137053,
         fujiedas_fury = 207776,
         valarjar_berserkers = 151824,
+
+        raging_thirst = 242300,
+        bloody_rage = 242952, -- 242953?
+        outrage = 253385,
     },
 
     -- Protection
@@ -1322,6 +1400,8 @@ gxWRB = {
         destiny_driver = 137018,
         destiny_driver_buff = 215157,
         ararats_bloodmirror = 151822,
+
+        wall_of_iron = 253428,
     },
 }
 insertGeneral = {
