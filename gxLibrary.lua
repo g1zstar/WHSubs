@@ -1,4 +1,4 @@
-gx.libraryVer = 40
+gx.libraryVer = 41
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -7,16 +7,17 @@ PaperDollFrame_SetStat = function(statFrame, unit, statIndex)
    oldSetStat(statFrame, unit, statIndex)
 end
 local oldTargetNearestEnemy = TargetNearestEnemy
-TargetNearestEnemy = function()
-    TargetNearest()
+TargetNearestEnemy = function(backward)
+    local oldTarget = ObjectExists("target") and ObjectIdentifier("target") or nil
+    TargetNearest(backward)
     if not UnitExists("target") then return end
-    if not UnitCanAttack("player", "target") then TargetNearestEnemy() end
+    if not UnitCanAttack("player", "target") and ObjectIdentifier("target") ~= oldTarget then TargetNearestEnemy() end
 end
 local oldHpPerStamina = UnitHPPerStamina
 UnitHPPerStamina = function(unit)
     -- if not unit then
     --     return 0
-    -- else
+    -- else.
     --     return oldHpPerStamina(unit)
     -- end
     return 0
