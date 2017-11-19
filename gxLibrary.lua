@@ -1,10 +1,25 @@
-gx.libraryVer = 39
+gx.libraryVer = 40
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
 PaperDollFrame_SetStat = function(statFrame, unit, statIndex)
    if statIndex == LE_UNIT_STAT_STAMINA then return end
    oldSetStat(statFrame, unit, statIndex)
+end
+local oldTargetNearestEnemy = TargetNearestEnemy
+TargetNearestEnemy = function()
+    TargetNearest()
+    if not UnitExists("target") then return end
+    if not UnitCanAttack("player", "target") then TargetNearestEnemy() end
+end
+local oldHpPerStamina = UnitHPPerStamina
+UnitHPPerStamina = function(unit)
+    -- if not unit then
+    --     return 0
+    -- else
+    --     return oldHpPerStamina(unit)
+    -- end
+    return 0
 end
 -- Bug Fixes
 
