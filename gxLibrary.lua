@@ -1,4 +1,4 @@
-gx.libraryVer = 37
+gx.libraryVer = 38
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -334,6 +334,24 @@ gxDKB = {
         bonestorm = 194844,
         blood_mirror = 206977,
         purgatory = 0,
+
+        consumption = 205223,
+        mouth_of_hell = 0,
+        umbilicus_eternus = 193249,
+        unending_thirst = 0,
+        vampiric_aura = 238698,
+        souldrinker = 0,
+
+        shackles_of_bryndaor = 132365,
+        rattlegore_bone_legplates = 132453,
+        service_of_gorefiend = 132367,
+        lanathels_lament = 133974,
+        lanathels_lament_buff = 212975,
+        skullflowers_haemostasis = 144281,
+        haemostasis = 235559,
+        soulflayers_corruption = 151795,
+
+        gravewarden = 242010,
     },
     -- Frost
     {
@@ -363,7 +381,25 @@ gxDKB = {
         obliteration = 207256,
         breath_of_sindragosa = 152279,
         hungering_rune_weapon = 207127,
+
+        sindragosas_fury = 190778,
+
+        seal_of_necrofantasia = 137223,
+        koltiras_newfound_will = 132366,
+        toravons_whiteout_bindinds = 132458,
+        perseverance_of_the_ebon_martyr = 132459,
+        consorts_cold_core = 144293,
+        cold_heart = 151796,
+        cold_heart_buff = 235599,
+
+        --[[Item - Death Knight T20 Frost 4P Bonus
+                        Requires Death Knight
+                        Every 3 Runes spent increases the Strength bonus of your next Pillar of Frost by 1%.]]
+        --[[Item - Death Knight T21 Blood 4P Bonus
+                        Requires Death Knight
+                        When Dancing Rune Weapon fades, your Rune regeneration rate is increased by 40% for 10 sec.]]
     },
+    
     -- Unholy
     {
         festering_wound = 194310,
@@ -402,15 +438,24 @@ gxDKB = {
         -- Honor Talents
 
         apocalypse = 220143,
+        gravitational_pull = 0,
         scourge_of_the_worlds = 191748,
 
         cold_heart = 151796,
         cold_heart_buff = 235599,
         taktheritrixs_shoulderpads = 137075,
+        taktheritrixs_command = 215069,
         draugr_girdle_of_the_everlasting_king = 132441,
         uvanimor_the_unbeautiful = 137037,
         the_instructors_fourth_lesson = 132448,
         death_march = 144280,
+
+        --[[Item - Death Knight T20 Unholy 2P Bonus
+                        Requires Death Knight
+                        Each ghoul summoned by Army of the Dead increases your damage dealt by 15% for 3 sec. Duration extends and does not stack.]]
+        --[[Item - Death Knight T21 Unholy 2P Bonus
+                        Requires Death Knight
+                        Death Coil causes the target to take an additional 25% of the direct damage dealt over 4 sec.]]
     },
 }
 insertGeneral = {
@@ -456,11 +501,74 @@ gxDHB = {
         -- Honor Talents
 
         fury_of_the_illidari = 201467,
+        balanced_blades = 0,
+        demon_speed = 0,
         anguish = 202443,
+
+        moarg_bionic_stabilizers = 137090,
+        raddons_cascading_eyes = 137061,
+        achor_the_eternal_hunger = 137014,
+        loramus_thalipedes_sacrifice = 137022,
+        anger_of_the_halfgiants = 137038,
+        delusions_of_grandeur = 144279,
+        chaos_theory = 151798,
+
+        --[[Item - Demon Hunter T21 Havoc 4P Bonus
+                        Requires Demon Hunter
+                        When Eye Beam finishes fully channeling, your Haste is increased by 40% for 8 sec.]]
     },
 
     -- Vengeance
-    {},
+    {
+        demon_spikes = 203720,
+        demon_spikes_buff = 0,
+        fiery_brand = 204021,
+        immolation_aura = 178740,
+        infernal_strike = 189110,
+        metamorphosis = 187827,
+        shear = 203782,
+        sigil_of_flame = 204596,
+        soul_cleave = 228477,
+        throw_glaive = 204157,
+        torment = 185245,
+        sigil_of_silence = 202137,
+        empower_wards = 218256,
+        sigil_of_misery = 207684,
+
+        felblade = 232893,
+        fel_eruption = 211881,
+        fracture = 209795,
+        sigil_of_chains = 202138,
+        fel_devastation = 212084,
+        blade_turning = 247253,
+        spirit_bomb = 247454,
+        spirit_bomb_debuff = 0,
+        last_resort = 0,
+        demonic_infusion = 236189,
+        soul_barrier = 227225,
+
+        soul_carver = 207407,
+        defensive_spikes = 0,
+        siphon_power = 0,
+        fiery_demise = 0,
+        painbringer = 207387,
+
+        cloak_of_fel_flames = 137066,
+        kirel_narak = 138949,
+        runemasters_pauldron = 137071,
+        the_defilers_lost_vambraces = 137091,
+        fragment_of_the_betrayers_prison = 138854,
+        spirit_of_the_darkness_flame = 144292,
+        spirit_of_the_darkness_flame_buff = 235543,
+        oblivions_embrace = 151799,
+
+        --[[Item - Demon Hunter T20 Vengeance 2P Bonus
+                        Requires Demon Hunter
+                        When you consume a Soul Fragment, all enemies within 10 yards deal 5% less damage to you for 6 sec.]]
+        --[[Item - Demon Hunter T20 Vengeance 4P Bonus  Level 110
+                        Requires Demon Hunter
+                        After using Soul Cleave, you gain 2000 Versatility for 8 sec.]]
+    },
 }
 insertGeneral = {
     blade_dance = 188499,
@@ -475,7 +583,6 @@ insertGeneral = {
     imprison = 217832,
     metamorphosis = 191427,
     metamorphosis_buff = 162264,
-    soul_carver = 214743,
     spectral_sight = 188501,
     throw_glaive = 185123,
     vengeful_retreat = 198793,
@@ -490,7 +597,63 @@ end
 
 gxDRB = {
     -- Balance
-    {},
+    {
+        solar_wrath = 190984,
+        starsurge = 78674,
+        lunar_empowerment = 164547,
+        solar_empowerment = 164545,
+        lunar_strike = 194153,
+        prowl = 5215,
+        sunfire = 93402,
+        moonkin_form = 24858,
+        remove_corruption = 2782,
+        barkskin = 22812,
+        starfall = 191034,
+        stellar_empowerment = 0,
+        celestial_alignment = 194223,
+        innervate = 29166,
+
+        force_of_nature = 205636,
+        warrior_of_elune = 202425,
+        renewal = 108238,
+        displacer_beast = 102280,
+        wild_charge = 132302, --?
+        -- feral_affinity
+        -- guardian_affinity
+        -- restoration_affinity
+        mighty_bash = 5211,
+        mass_entanglement = 102359,
+        typhoon = 132469,
+        incarnation_chosen_of_elune = 102560,
+        stellar_flare = 202347,
+        astral_communion = 202359,
+        blessing_of_the_ancients = 202360,
+        blessing_of_elune = 0,
+        blessing_of_anshe = 0,
+        fury_of_elune = 202770,
+
+        new_moon = 0,
+        half_moon = 0,
+        full_moon = 0,
+        rapid_innervation = 0,
+        moon_and_stars = 202942,
+        wax_and_wane = 239952,
+        circadian_invocation = 238119,
+
+        impeccable_fel_essence = 137039,
+        promise_of_elune_the_moon_goddess = 137023,
+        promise_of_elune_the_moon_goddess_buff = 208284,
+        the_emerald_dreamcatcher = 137062,
+        the_emerald_dreamcatcher_buff = 224706,
+        oneths_intuition = 137092,
+        oneths_intuition_buff = 209406,
+        oneths_overconfidence = 209407,
+        lady_and_the_child = 144295,
+        radiant_moonlight = 151800,
+
+        astral_acceleration = 242232,
+        solar_solstice = 252767,
+    },
 
     -- Feral
     {
@@ -532,7 +695,14 @@ gxDRB = {
         -- Honor Talents
     
         ashamanes_frenzy = 210722,
+        protection_of_ashamane = 0,
+        ashamanes_energy = 0,
+        scent_of_blood = 0,
+        feral_instinct = 0,
+        open_wounds = 0,
+        ashamanes_bite = 0,
         fury_of_ashamane = 240670,
+        bloodletters_frailty = 0,
     
         chatoyant_signet = 137040,
         ailuro_pouncers = 137024,
@@ -546,9 +716,118 @@ gxDRB = {
     },
 
     -- Guardian
-    {},
+    {
+        mangle = 33917,
+        maul = 6807,
+        thrash = 106832,
+        thrash_debuff = 0,
+        prowl = 5215,
+        ironfur = 192081,
+        remove_corruption = 2782,
+        barkskin = 22812,
+        incapacitating_roar = 99,
+        swipe = 213764,
+        survival_instincts = 61336,
+        frenzied_regeneration = 22842,
+        gore = 0,
+        stampeding_roar = 106898,
+        skull_bash = 106839,
+
+        brambles = 0,
+        bristling_fur = 155835,
+        intimidating_roar = 236748,
+        wild_charge = 132302, --?
+        -- balance_affinity
+        -- feral_affinity
+        -- restoration_affinity
+        mighty_bash = 5211,
+        mass_entanglement = 102359,
+        typhoon = 132469,
+        incarnation_guardian_of_ursoc = 102558,
+        galactic_guardian = 0,
+        earthwarden = 0,
+        guardian_of_elune = 213680,
+        rend_and_tear = 0,
+        lunar_beam = 204066,
+        pulverize = 80313,
+
+        rage_of_the_sleeper = 200851,
+        bloody_paws = 214995,
+        gory_fur = 201671,
+        adaptive_fur = 0,
+        embrace_of_the_nightmare = 0,
+        scintillating_moonlight = 0,
+
+        luffa_wrappings = 137056,
+        skysecs_hold = 137025,
+        elizes_everlasting_encasement = 137067,
+        dual_determination = 137041,
+        oakhearts_puny_quods = 144432,
+        oakhearts_puny_quods_buff = 236479,
+        fury_of_nature = 151802,
+
+        natural_defenses = 211160,
+        --[[Item - Druid T21 Guardian 4P Bonus
+                        Requires Druid
+                        When Barkskin fades, all healing done to you is increased by 10% for 20 sec.]]
+    },
     -- Restoration
-    {},
+    {
+        solar_wrath = 5176,
+        rejuvenation = 774,
+        swiftmend = 18562,
+        prowl = 5215,
+        sunfire = 93402,
+        lifebloom = 33763,
+        natures_cure = 88423,
+        healing_touch = 5185,
+        barkskin = 22812,
+        wild_growth = 48438,
+        clearcasting = 16870,
+        innervate = 29166,
+        ironbark = 102342,
+        living_seed = 0,
+        ursols_vortex = 102793,
+        revitalize = 212040,
+        efflorescence = 145205,
+        tranquility = 740,
+
+        cenarion_ward = 102351,
+        abundance = 0,
+        renewal = 108238,
+        displacer_beast = 102280,
+        wild_charge = 132302, -- ?
+        -- balance_affinity
+        -- feral_affinity
+        -- guardian_affinity
+        mighty_bash = 5211,
+        mass_entanglement = 102359,
+        typhoon = 132469,
+        soul_of_the_forest = 0,
+        incarnation_tree_of_life = 33891,
+        cultivation = 0,
+        spring_blossoms = 0,
+        germination = 0,
+        flourish = 197721,
+
+        essence_of_ghanir = 208253,
+        power_of_the_archdruid = 189877,
+        dreamwalker = 0,
+        deep_rooted = 0,
+
+        tearstone_of_elune = 137042,
+        essence_of_infusion = 137026,
+        edraith_bonds_aglaya = 137095,
+        amanthuls_wisdom = 137072,
+        the_dark_titans_advice = 137078,
+        xionis_caress = 144242,
+        chameleon_song = 151783,
+
+        astral_harmony = 232378,
+        blossoming_efflorescence = 242315,
+        dreamer = 253432,
+        awakened = 253434,
+    },
 }
 insertGeneral = {
     moonfire = 8921,
@@ -607,6 +886,25 @@ gxHB = {
         barrage = 120360,
         volley = 194386,
         stampede = 201430,
+
+        titans_thunder = 207068,
+        hunters_advantage = 0,
+        jaws_of_thunder = 0,
+        thunderslash = 0,
+        cobra_commander = 0,
+
+        roar_of_the_seven_lions = 137080,
+        qapla_eredun_war_order = 137227,
+        the_apex_predators_claw = 137382,
+        the_mantle_of_command = 144326,
+        parsels_tongue = 151805,
+        parsels_tongue_buff = 248085,
+        call_of_the_wild = 137101,
+
+        -- bestial_wrath = 211183, -- t19 4pc
+        --[[Item - Hunter T20 Beast Mastery 2P Bonus
+                        Requires Hunter
+                        Cobra Shot, Multi-shot, and Kill Command increase the damage bonus of Bestial Wrath by 1.5% for its remaining duration.]]
     },
     -- Marksman
     {
@@ -645,12 +943,30 @@ gxHB = {
         volley = 194386,
         sidewinders = 214579,
         piercing_shot = 198670,
-
     
         -- Honor Talents
     
         windburst = 204147,
+        survival_of_the_fittest = 0,
+        feet_of_wind = 240777,
         bullseye = 204090,
+        rapid_killing = 191342,
+        cyclonic_burst = 0,
+
+        magnetized_blasting_cap_launcher = 141353,
+        ullrs_feather_snowshoes = 137033,
+        zevrims_hunger = 137055,
+        war_belt_of_the_sentinel_army = 137081,
+        sentinels_sight = 208913,
+        mkii_gyroscopic_stabilizer = 144303,
+        gyroscopic_stabilization = 235712, --?
+        celerity_of_the_windrunners = 151803,
+        celerity_of_the_windrunners_buff = 248088,
+
+        --[[Item - Hunter T20 Marksmanship 4P Bonus
+                        Requires Hunter
+                        Casting two Aimed Shots in a row increases your critical strike damage by 10% for 6 sec.]]
+        precision = 246153,
     },
 
     -- Survival
@@ -689,6 +1005,25 @@ gxHB = {
         serpent_sting = 0,
         spitting_cobra = 194407,
 
+        fury_of_the_eagle = 203415,
+        aspect_of_the_skylord = 203927,
+        on_the_trail = 204081,
+        echo_of_ohnara = 0,
+
+        call_of_the_wild = 137101,
+        nesingwarys_trapping_treads = 137034,
+        frizzos_fingertrap = 137043,
+        helbrine_rope_of_the_mist_marauder = 137082,
+        helbrine_rope_of_the_mist_marauder_buff = 0,
+        butchers_bone_apron = 144361,
+        butchers_bone_apron_buff = 236446,
+        unseen_predators_cloak = 151807,
+
+        --[[Item - Hunter T19 Survival 4P Bonus
+                        Requires Hunter
+                        When Mongoose Fury reaches 6 applications, you gain 15% increased damage to all abilities for 10 sec.]]
+        exposed_flank = 252094,
+        in_for_the_kill = 252095,
     },
 }
 insertGeneral = {
@@ -714,6 +1049,9 @@ insertGeneral = {
     call_pet_four = 83244,
     aspect_of_the_turtle = 186265,
     call_pet_five = 83245,
+
+    the_shadow_hunters_voodoo_mask = 137064,
+    soul_of_the_huntmaster = 151641,
 }
 for i = 1, 3 do
     for k,v in pairs(insertGeneral) do
@@ -752,6 +1090,23 @@ gxMGB = {
         nether_tempest = 114923,
         erosion = 210134,
         arcane_orb = 153626,
+
+        mark_of_aluneth = 224968,
+        touch_of_the_magi = 210824,
+
+        rhonins_assaulting_armwraps = 132413,
+        rhonins_assaulting_armwraps_buff = 208081,
+        cord_of_infinity = 132442,
+        cord_of_infinity_buff = 209316,
+        mystic_kilt_of_the_rune_master = 132451,
+        gravity_spiral = 144274,
+        mantle_of_the_first_kirin_tor = 151808,
+
+        crackling_energy = 246224,
+        --[[Item - Mage T21 Arcane 2P Bonus
+                        Requires Mage
+                        Each Arcane Charge you spend increases your damage dealt by 4% for 8 sec.]]
+        quick_thinker = 253299,
     },
 
     -- Fire
@@ -780,6 +1135,13 @@ gxMGB = {
         meteor = 153561,
     
         phoenixs_flames = 194466,
+        scorched_earth = 0,
+        molten_skin = 0,
+        cauterizing_blink = 0,
+        blast_furnace = 194522,
+        pyretic_incantation = 0,
+        phoenix_reborn = 0,
+        warmth_of_the_phoenix = 240671,
     
         koralons_burning_touch = 132454,
         darcklis_dragonfire_diadem = 132863,
@@ -788,6 +1150,11 @@ gxMGB = {
         pyrotex_ignition_cloth = 144355,
         contained_infernal_core = 151809,
         erupting_infernal_core = 248147,
+
+        streaking = 211399,
+        ignition = 246261,
+        critical_massive = 242251,
+        inferno = 253220,
     },
 
     -- Frost
@@ -825,9 +1192,12 @@ gxMGB = {
         comet_storm = 153595,
 
         ebonbolt = 214634,
+        jouster = 0,
+        black_ice = 0,
         chain_reaction = 195418,
         chilled_to_the_core = 195446,
         freezing_rain = 240555,
+        glacial_eruption = 0,
 
         lady_vashjs_grasp = 132411,
         lady_vashjs_grasp_buff = 208147,
@@ -841,6 +1211,9 @@ gxMGB = {
         rage_of_the_frost_wyrm = 248177,
 
         frozen_mass = 242253,
+        --[[Item - Mage T21 Frost 4P Bonus
+                        Requires Mage
+                        When you consume Brain Freeze, the damage of your next Ice Lance is increased by 25%.]]
     },
 }
 insertGeneral = {
@@ -914,6 +1287,22 @@ gxMKB = {
         invoke_niuzao_the_black_ox = 132578,
         elusive_dance = 0,
         blackout_combo = 228563,
+
+        exploding_keg = 214326,
+        gifted_student = 227678,
+        swift_as_a_coursing_river = 213177,
+        dark_side_of_the_moon = 0,
+        hot_blooded = 0,
+        brew_stache = 214373,
+        fortification = 213341,
+
+        firestone_walkers = 137027,
+        salsalabims_lost_tunic = 137016,
+        fundamental_observation = 137063,
+        gai_plins_soothing_sash = 137079,
+        jewel_of_the_lost_abbey = 137044,
+        anvilhardened_wristwraps = 144277,
+        stormstouts_last_gasp = 151788,
     },
 
     -- Mistweaver
@@ -955,6 +1344,36 @@ gxMKB = {
         invoke_chiji_the_red_crane = 198664,
         summon_jade_serpent_statue = 115313,
         mana_tea = 197908,
+
+        sheiluns_gift = 205406,
+        spirit_tether = 199387,
+        shroud_of_mist = 0,
+        light_on_your_feet = 0,
+        the_mists_of_sheilun = 199888,
+        blessings_of_yulon = 0,
+
+        eye_of_collidus_the_warpwatcher = 137045,
+        collidus_the_warpwatchers_gaze = 217474,
+        petrichor_lagniappe = 137096,
+        leggings_of_the_black_flame = 137068,
+        the_black_flames_gamble_effuse = 216992,
+        the_black_flames_gamble_enveloping_mist = 216995,
+        the_black_flames_gamble_essence_font = 217000,
+        the_black_flames_gamble_renewing_mist = 216509,
+        the_black_flames_gamble_vivify = 217006,
+        unison_spaulders = 137073,
+        eithas_lunar_glides_of_eramas = 137028,
+        ovyds_winter_wrap = 138879,
+        shelter_of_rin = 144340,
+
+        surge_of_mists = 246328,
+        --[[Item - Monk T20 Mistweaver 4P Bonus
+                        Requires Monk
+                        When you consume Surge of Mist, your healing done is increased by 12% for 10 sec.]]
+        tranquil_mist = 253448,
+        --[[Item - Monk T21 Mistweaver 4P Bonus
+                        Requires Monk
+                        When you cast Renewing Mist, you have a 100% chance to send a bolt of healing Chi at all targets affected by Tranquil Mist, healing them for (300% of Spell power).]]
     },
 
     -- Windwalker
@@ -1004,7 +1423,6 @@ gxMKB = {
         master_of_combinations = 240672,
         thunderfist = 242387,
     
-        soul_of_the_grandmaster = 151643,
         cenedril_reflector_of_hatred = 137019,
         drinking_horn_cover = 137097,
         march_of_the_legion = 137220,
@@ -1014,6 +1432,9 @@ gxMKB = {
         the_emperors_capacitor_buff = 235054,
         the_wind_blows = 151811,
     
+        --[[Item - Monk T19 Windwalker 4P Bonus Level 110
+                        Requires Monk
+                        Using 3 sequentially different abilities grants 2000 Mastery for 10 sec.]]
         pressure_point = 247255, -- tier 20 4pc
     },
 }
@@ -1032,6 +1453,8 @@ insertGeneral = {
     paralysis = 115078,
     transcendence = 101643,
     transcendence_transfer = 119996,
+
+    soul_of_the_grandmaster = 151643
 }
 for i = 1, 3 do
     for k,v in pairs(insertGeneral) do
@@ -1074,6 +1497,26 @@ gxPDB = {
         judgment_of_light = 196941,
         beacon_of_faith = 156910,
         beacon_of_virtue = 200025,
+
+        tyrs_deliverance = 200652,
+        knight_of_the_silver_hand = 0,
+        power_of_the_silver_hand_accumulation = 200656,
+        power_of_the_silver_hand = 200657,
+        protection_of_tyr = 211210,
+        the_light_saves = 0,
+        sacred_dawn = 0,
+
+        ilterendi_crown_jewel_of_silvermoon = 137046,
+        ilterendi_crown_jewel_of_silvermoon_buff = 207589,
+        obsidian_stone_spaulders = 137076,
+        tyrs_hand_of_faith = 137059,
+        maraads_dying_breath = 144273,
+        maraads_dying_breath_buff = 234862,
+        the_topless_tower = 151782,
+        uthers_guard = 137105,
+
+        lights_embrace = 247237,
+        purity_of_light = 254332,
     },
 
     -- Protection
@@ -1108,6 +1551,23 @@ gxPDB = {
         judgment_of_light = 196941,
         seraphim = 152262,
         last_defender = 0,
+
+        eye_of_tyr = 209202,
+        faiths_armor = 0,
+        forbearant_faithful = 0,
+        bulwark_of_order = 0,
+        light_of_the_titans = 209539,
+        defender_of_truth = 0,
+        blessed_stalwart = 242869,
+
+        uthers_guard = 137105,
+        heathcliffs_immortality = 137047,
+        tyelca_ferren_marcus_stature = 137070,
+        breastplate_of_the_golden_valkyr = 137017,
+        saruans_resolve = 144275,
+        pillars_of_inmost_light = 151812,
+
+        avengers_protection = 242265,
     },
 
     -- Retribution
@@ -1141,11 +1601,30 @@ gxPDB = {
         divine_purpose = 223819,
         crusade = 231895,
         holy_wrath = 210220,
+
+        wake_of_ashes = 205273,
+        unbreakable_will = 0,
+        ashes_to_ashes = 0,
+        righteous_verdict = 0,
+        blessing_of_the_ashbringer = 0,
+
+        liadrins_fury_unleashed = 137048,
+        liadrins_fury_unleashed_buff = 208410,
+        aegisjalmur_the_armguards_of_awe = 140846,
+        aegisjalmur_the_armguards_of_awe_debuff = 225056,
+        whisper_of_the_nathrezim = 137020,
+        whisper_of_the_nathrezim_buff = 207635,
+        justice_gaze = 137065,
+        ashes_todust = 144358,
+        scarlet_inquisitors_expurgation = 151813,
+        scarlet_inquisitors_expurgation_buff = 248289,
+
+        -- sacred_judgment = 246973, -- t20 Judgment also increased damage of blade of justice
+        sacred_judgment = 253806, -- t21 judgment causes next hp spender's cost to be -1 (WHY THE HELL DID THEY USE THE SAME NAME)
     },
 }
 insertGeneral = {
     crusader_strike = 35395,
-    tyrs_deliverance = 200654,
     judgment = 20271,
     hand_of_reckoning = 62124,
     redemption = 7328,
@@ -1155,6 +1634,9 @@ insertGeneral = {
     contemplation = 121183,
     lay_on_hands = 633,
     forbearance = 0,
+
+    chain_of_thrayn = 137086,
+    soul_of_the_highlord = 151644,
 }
 for i = 1, 3 do
     for k,v in pairs(insertGeneral) do
@@ -1202,6 +1684,29 @@ gxPRB = {
         halo = 120517,
         power_infusion = 10060,
         evangelism = 246287,
+
+        lights_wrath = 207946,
+        vestments_of_discipline = 0,
+        speed_of_the_pious = 0,
+        borrowed_time = 0,
+        share_in_the_light = 0,
+        power_of_the_dark_side = 0,
+        barrier_for_the_devoted = 0,
+        sins_of_the_many = 0,
+        aegis_of_wrath = 0,
+
+        cord_of_maiev_priestess_of_the_moon = 133800,
+        estel_dejahnas_inspiration = 132861,
+        dejahnas_inspiration = 214637,
+        nero_band_of_promises = 137276,
+        skjoldr_sanctuary_of_ivagont = 132436,
+        xalan_the_feareds_clench = 132461,
+        kam_xiraff = 144244,
+        kam_xiraff_buff = 233997,
+        inner_hallation = 151786,
+
+        penitent = 246519,
+        radiant_focus = 252848,
     },
 
     -- Holy
@@ -1241,6 +1746,29 @@ gxPRB = {
         halo = 120517,
         apotheosis = 200183,
         circle_of_healing = 204883,
+
+        invoke_the_naaru = 0,
+        guardians_of_light = 0,
+        power_of_the_naaru = 0,
+        focus_in_the_light = 0,
+        light_of_tuure = 208065,
+        blessing_of_tuure = 196644,
+
+        xanshi_shroud_of_archbishop_benedictus = 137109,
+        archbishop_benedictus_restitution = 211319,
+        muzes_unwavering_will = 132450,
+        phyrixs_embrace = 132449,
+        entrancing_trousers_of_anjuna = 132447,
+        almaiesh_the_cord_of_hope = 132445,
+        almaiesh_the_cord_of_hope_serenity = 211440,
+        almaiesh_the_cord_of_hope_sanctify = 211442,
+        almaiesh_the_cord_of_hope_chastise = 211443,
+        rammals_ulterior_motive = 144247,
+        rammals_ulterior_motive_buff = 234711,
+        the_alabaster_lady = 151787,
+
+        answered_prayers = 253437,
+        everlasting_hope = 253443,
     },
 
     -- Shadow
@@ -1277,6 +1805,27 @@ gxPRB = {
         mindbender = 200174,
         shadow_crash = 205385,
         surrender_to_madness = 193223,
+
+        void_torrent = 205065,
+        mental_fortitude = 0,
+        thrive_in_the_shadows = 0,
+        call_to_the_void = 0,
+        sphere_of_insanity = 0,
+        mass_hysteria = 0,
+        mind_quickening = 240673,
+        lash_of_insanity = 0,
+
+        anunds_seared_shackles = 132409,
+        anunds_last_breath = 215210,
+        zenkaram_iridis_anadem = 133971,
+        the_twins_painful_touch = 133973,
+        mangazas_madness = 132864,
+        mother_shahrazs_seduction = 132437, -- needs to be tested how it affects drain stacks monitor
+        zeks_exterminatus = 144438,
+        zeks_exterminatus_buff = 236546,
+        heart_of_the_void = 151814,
+
+        empty_mind = 247226,
     },
 }
 insertGeneral = {
@@ -1288,6 +1837,8 @@ insertGeneral = {
     fade = 586,
     dispel_magic = 825,
     mass_dispel = 32375,
+
+    soul_of_the_high_priest = 151646,
 }
 for i = 1, 3 do
     for k,v in pairs(insertGeneral) do
@@ -1347,6 +1898,11 @@ gxRB = {
         the_empty_crown = 151815,
         the_dreadlords_deceit = 137021,
         the_dreadlords_deceit_buff = 208693,
+
+        --[[Item - Rogue T19 Assassination 2P Bonus
+                        Requires Rogue
+                        Mutilate also causes the target to Bleed for 20% additional damage over 8 sec.]]
+        virulent_poisons = 252277,
     },
 
     -- Outlaw
@@ -1403,6 +1959,17 @@ gxRB = {
         shivarran_symmetry = 141321,
         shivarran_symmetry_buff = 226318,
         the_curse_of_restlessness = 151817,
+
+        swordplay = 211669,
+        --[[Item - Rogue T20 Outlaw 2P Bonus
+                        Requires Rogue
+                        Free Pistol Shots increase your critical strike chance by 5% for 8 sec.]]
+        --[[Item - Rogue T20 Outlaw 4P Bonus
+                        Requires Rogue
+                        Adrenaline Rush persists for 8 sec longer when it ends, at half power.]]
+        --[[Item - Rogue T21 Outlaw 2P Bonus
+                        Requires Rogue
+                        Extra attacks from Saber Slash increase the damage of your next Run Through by 5%, stacking up to 4 times.]]
     },
 
     -- Subtlety
@@ -1453,6 +2020,8 @@ gxRB = {
         denial_of_the_half_giants = 137100,
         the_first_of_the_dead = 151818,
         the_first_of_the_dead_buff = 248210,
+
+        shadow_gestures = 257945,
     },
 }
 insertGeneral = {
@@ -1515,6 +2084,26 @@ gxSB = {
         ascendance = 114050,
         lightning_rod = 0,
         icefury = 210714,
+
+        stormkeeper = 205495,
+        static_overload = 191634,
+        power_of_the_maelstrom = 191877,
+        volcanic_inferno = 0,
+        fury_of_the_storms = 0,
+        seismic_storm = 0,
+
+        eye_of_the_twisting_nether = 137050,
+        eye_of_the_twisting_nether_buff = 0,
+        smoldering_heart = 151819,
+        the_deceivers_blood_pact = 137035,
+        echoes_of_the_great_sundering = 137074,
+        echoes_of_the_great_sundering_buff = 208723,
+        pristine_protoscale_girdle = 137083,
+        pristine_protoscale_girdle_debuff = 224852,
+        alakirs_acrimony = 137102,
+
+        focused_elements = 246594,
+        earthen_strength = 252141,
     },
 
     -- Enhancement
@@ -1550,6 +2139,33 @@ gxSB = {
         sundering = 197214,
         ascendance = 114051,
         earthen_spike = 188089,
+
+        doom_winds = 204945,
+        gathering_storms = 0,
+        wind_strikes = 0,
+        alpha_wolf = 0,
+        elemental_healing = 0,
+        raging_storms = 0,
+        spirit_of_the_maelstrom = 0,
+        doom_wolves = 0,
+        unleash_doom = 199055,
+        lashing_flames = 240842,
+
+        eye_of_the_twisting_nether = 137050,
+        eye_of_the_twisting_nether_buff = 0,
+        smoldering_heart = 151819,
+        storm_tempests = 137103,
+        storm_tempests_debuff = 214265,
+        akainus_absolute_justice = 137084,
+        emalons_charged_core = 137616,
+        emalons_charged_core_buff = 208742,
+        spiritual_journey = 138117,
+        spiritual_journey_buff = 214170,
+
+        lightning_crash = 242284,
+        crashing_lightning = 242286,
+        force_of_the_mountain = 254308,
+        exposed_elements = 252151,
     },
 
     -- Restoration
@@ -1588,6 +2204,13 @@ gxSB = {
         ascendance = 114052,
         wellspring = 197995,
 
+        gift_of_the_queen = 207778,
+        ghost_in_the_mist = 0,
+        caress_of_the_tidemother = 0,
+        queen_ascendant = 0,
+        servant_of_the_queen = 207654,
+        cumulative_upkeep = 0,
+
         focuser_of_jonat_the_elder = 137051,
         jonats_focus = 210607,
         intact_nazjatar_molting = 137085,
@@ -1596,6 +2219,9 @@ gxSB = {
         nobundos_redemption = 137104,
         nobundos_redemption_buff = 208764,
         fire_in_the_deep = 151785,
+
+        tidal_force = 246729,
+        spirit_rain = 246771,
     },
 }
 insertGeneral = {
@@ -1988,8 +2614,10 @@ gxGB = {
     cannibalize = 20577,
     will_of_the_forsaken = 7744,
 
+
     gladiators_medallion = 208683,
 
+    
     sephuzs_secret = 132452,
     sephuzs_secret_buff = 208052,
     prydaz_xavarics_magnum_opus = 132444,
@@ -1998,6 +2626,7 @@ gxGB = {
     glimpse_of_enlightenment = 256818,
     amanthuls_grandeur = 256832,
     insignia_of_the_grand_army = 152626,
+
     norgannons_foresight = 132455,
     -- norgannons_foresight_buff = 208215,
     cinidaria_the_symbiote = 133976,
@@ -2008,6 +2637,7 @@ gxGB = {
     kiljaedens_burning_wish = 144259,
     velens_future_sight = 144258,
     velens_future_sight_buff = 235966,
+    
     celumbra_the_nights_dichotomy = 146666,
     -- celumbra_the_nights_dichotomy_buff1 = 146666,
     -- celumbra_the_nights_dichotomy_buff2 = 146666,
@@ -2020,6 +2650,7 @@ gxGB = {
     rethus_incessant_courage = 146667,
     -- rethus_incessant_courage_buff1 = 146667,
     -- rethus_incessant_courage_buff2 = 146667,
+
 
     convergence_of_fates = 140806,
     ring_of_collapsing_futres = 142173,
