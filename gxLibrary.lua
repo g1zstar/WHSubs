@@ -1,4 +1,4 @@
-gx.libraryVer = 42
+gx.libraryVer = 43
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -6,22 +6,22 @@ PaperDollFrame_SetStat = function(statFrame, unit, statIndex)
    if statIndex == LE_UNIT_STAT_STAMINA then return end
    oldSetStat(statFrame, unit, statIndex)
 end
--- local oldTargetNearestEnemy = TargetNearestEnemy
--- TargetNearestEnemy = function(backward)
---     local oldTarget = ObjectExists("target") and ObjectIdentifier("target") or nil
---     TargetNearest(backward)
---     if not UnitExists("target") then return end
---     if not UnitCanAttack("player", "target") and ObjectIdentifier("target") ~= oldTarget then TargetNearestEnemy() end
--- end
--- local oldHpPerStamina = UnitHPPerStamina
--- UnitHPPerStamina = function(unit)
---     -- if not unit then
---     --     return 0
---     -- else.
---     --     return oldHpPerStamina(unit)
---     -- end
---     return 0
--- end
+local oldTargetNearestEnemy = TargetNearestEnemy
+TargetNearestEnemy = function(backward)
+    local oldTarget = ObjectExists("target") and ObjectIdentifier("target") or nil
+    TargetNearest(backward)
+    if not UnitExists("target") then return end
+    if not UnitCanAttack("player", "target") and ObjectIdentifier("target") ~= oldTarget then TargetNearestEnemy() end
+end
+local oldHpPerStamina = UnitHPPerStamina
+UnitHPPerStamina = function(unit)
+    -- if not unit then
+    --     return 0
+    -- else.
+    --     return oldHpPerStamina(unit)
+    -- end
+    return 0
+end
 -- Bug Fixes
 
 function math.sign(v)
