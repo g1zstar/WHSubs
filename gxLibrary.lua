@@ -1,4 +1,4 @@
-gx.libraryVer = 44
+gx.libraryVer = 45
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -98,7 +98,7 @@ function gx.poolEnergyFor(spell, castAfter, unit)
 end
 
 function gx.castThrough(spell, unit, tickTime)
-    if tickTime == 0 then CastSpellByID(spell, unit) return end
+    if not tickTime or tickTime == 0 then CastSpellByID(spell, unit) return end
     local name = UnitChannelInfo("player")
     if not name then cast(spell, unit) return end
     gx.queueUpCO(function()
