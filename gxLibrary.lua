@@ -1,4 +1,4 @@
-gx.libraryVer = 45
+gx.libraryVer = 46
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -159,7 +159,7 @@ end
 icdFrame:SetScript("OnEvent", setICDs)
 
 function gx.sephuzsAvailable()
-    return GetTime() > sephuzs_cd
+    return IsEquippedItem(132452) and GetTime() > sephuzs_cd
 end
 
 local externals = {
