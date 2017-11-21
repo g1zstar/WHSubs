@@ -1,4 +1,4 @@
-gx.libraryVer = 43
+gx.libraryVer = 44
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -6,22 +6,22 @@ PaperDollFrame_SetStat = function(statFrame, unit, statIndex)
    if statIndex == LE_UNIT_STAT_STAMINA then return end
    oldSetStat(statFrame, unit, statIndex)
 end
-local oldTargetNearestEnemy = TargetNearestEnemy
-TargetNearestEnemy = function(backward)
-    local oldTarget = ObjectExists("target") and ObjectIdentifier("target") or nil
-    TargetNearest(backward)
-    if not UnitExists("target") then return end
-    if not UnitCanAttack("player", "target") and ObjectIdentifier("target") ~= oldTarget then TargetNearestEnemy() end
-end
-local oldHpPerStamina = UnitHPPerStamina
-UnitHPPerStamina = function(unit)
-    -- if not unit then
-    --     return 0
-    -- else.
-    --     return oldHpPerStamina(unit)
-    -- end
-    return 0
-end
+-- local oldTargetNearestEnemy = TargetNearestEnemy
+-- TargetNearestEnemy = function(backward)
+--     local oldTarget = ObjectExists("target") and ObjectIdentifier("target") or nil
+--     TargetNearest(backward)
+--     if not UnitExists("target") then return end
+--     if not UnitCanAttack("player", "target") and ObjectIdentifier("target") ~= oldTarget then TargetNearestEnemy() end
+-- end
+-- local oldHpPerStamina = UnitHPPerStamina
+-- UnitHPPerStamina = function(unit)
+--     -- if not unit then
+--     --     return 0
+--     -- else.
+--     --     return oldHpPerStamina(unit)
+--     -- end
+--     return 0
+-- end
 -- Bug Fixes
 
 function math.sign(v)
@@ -475,6 +475,8 @@ gxDKB = {
     },
 }
 insertGeneral = {
+    blood_fury = 20572,
+
     frost_breath = 190780,
     corse_explosion = 127344,
     death_gate = 50977,
@@ -587,6 +589,8 @@ gxDHB = {
     },
 }
 insertGeneral = {
+    blood_fury = 20572,
+
     blade_dance = 188499,
     blur = 198589,
     blur_buff = 212800,
@@ -846,6 +850,8 @@ gxDRB = {
     },
 }
 insertGeneral = {
+    blood_fury = 33697,
+
     moonfire = 8921,
     regrowth = 8936,
     cat_form = 768,
@@ -1043,6 +1049,8 @@ gxHB = {
     },
 }
 insertGeneral = {
+    blood_fury = 20572,
+
     call_pet_one = 883,
     marked_shot = 212621,
     vulnerable = 187131,
@@ -1233,6 +1241,8 @@ gxMGB = {
     },
 }
 insertGeneral = {
+    blood_fury = 33072,
+
     illusion = 131784,
     polymorph_polar_bear_cub = 161353,
     polymorph_penguin = 161355,
@@ -1640,6 +1650,8 @@ gxPDB = {
     },
 }
 insertGeneral = {
+    blood_fury = 33697,
+
     crusader_strike = 35395,
     judgment = 20271,
     hand_of_reckoning = 62124,
@@ -1845,6 +1857,8 @@ gxPRB = {
     },
 }
 insertGeneral = {
+    blood_fury = 33072,
+
     shoot = 5019,
     smite = 585,
     resurrection = 2006,
@@ -1906,6 +1920,7 @@ gxRB = {
         neurotoxin  = 206328,
 
         kingsbane = 192759,
+        surge_of_toxins = 192425,
         blood_of_the_assassinated = 192925,
         master_assassin_trait = 330,
 
@@ -2041,6 +2056,8 @@ gxRB = {
     },
 }
 insertGeneral = {
+    blood_fury = 20572,
+
     crimson_vial = 185311,
     kick = 1766,
     pick_lock = 1804,
@@ -2241,6 +2258,8 @@ gxSB = {
     },
 }
 insertGeneral = {
+    blood_fury = 33697,
+
     earthbind_totem = 2484,
     farsight = 6196,
     ancestral_spirit = 2008,
@@ -2607,10 +2626,6 @@ for i = 1, 3 do
         gxWRB[i][k] = v
     end
 end
-
--- apbf = 20572
--- apspbf = 33697
--- spbf = 33072
 
 gxGB = {
     gift_of_the_naaru = 121093,
