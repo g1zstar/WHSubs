@@ -1,4 +1,4 @@
-gx.libraryVer = 46
+gx.libraryVer = 47
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -83,12 +83,12 @@ end
 
 function gx.poolEnergyFor(spell, castAfter, unit)
     gx.queueUpCO(function()
-            while (not castable(spell) and gx.notEnoughEnergyFor(spell)) do
+            while (not castable(spell) and gx.notEnoughEnergyFor(spell) and player.time > 0) do
                 coroutine.yield()
                 gx.printd("Pooling for "..GetSpellInfo(spell))
             end
             if castAfter and UnitExists(unit.unitID) and not UnitIsDeadOrGhost(unit.unitID) then
-                while (player.spell(spell).cooldown == 0 and player.spell(61304).cooldown == 0) do
+                while (player.spell(spell).cooldown == 0 and player.spell(61304).cooldown == 0 and player.time > 0) do
                     cast(spell, unit)
                     coroutine.yield()
                     gx.printd("Casting "..GetSpellInfo(spell).." after Pooling")
@@ -427,7 +427,7 @@ gxDKB = {
         raise_dead = 46584,
         scourge_strike = 55090,
         death_and_decay = 43265,
-        death_and_decay = 188290,
+        death_and_decay_buff = 188290,
         icebound_fortitude = 48792,
         dark_succor = 101568,
         wraith_walk = 212552,
