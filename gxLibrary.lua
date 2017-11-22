@@ -1,4 +1,4 @@
-gx.libraryVer = 47
+gx.libraryVer = 48
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -373,7 +373,7 @@ gxDKB = {
     {
         frost_strike = 49143,
         howling_blast = 49184,
-        frost_fever = 0,
+        frost_fever = 55095,
         obliterate = 49020,
         killing_machine = 51124,
         empower_rune_weapon = 47568,
@@ -385,15 +385,16 @@ gxDKB = {
         wraith_walk = 212552,
         chains_of_ice = 45524,
 
-        icy_talons = 0,
+        icy_talons = 194879,
         horn_of_winter = 57330,
         glacial_advance = 194913,
         blinding_sleet = 207167,
-        winter_is_coming = 0,
-        winter_is_coming_stun = 0,
-        permafrost = 0,
-        inexorable_assault = 0,
+        winter_is_coming = 211794,
+        winter_is_coming_stun = 207171,
+        permafrost = 207203,
+        inexorable_assault = 253595,
         frostscythe = 207230,
+        gathering_storm = 211805,
         obliteration = 207256,
         breath_of_sindragosa = 152279,
         hungering_rune_weapon = 207127,
@@ -439,17 +440,15 @@ gxDKB = {
 
         epidemic = 207317,
         blighted_rune_weapon = 194918,
-        unholy_frenzy = 0,
+        unholy_frenzy = 207290,
         clawing_shadows = 207311,
         asphyxiate = 108194,
         corpse_shield = 207319,
-        necrosis = 0,
+        necrosis = 216974,
         dark_arbiter = 207349,
         defile = 152280,
-        defile_buff = 0,
         soul_reaper = 130736,
         soul_reaper_buff = 215711,
-
 
         -- Honor Talents
 
