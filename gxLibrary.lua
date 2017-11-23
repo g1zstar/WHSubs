@@ -1,4 +1,4 @@
-gx.libraryVer = 48
+gx.libraryVer = 49
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -357,6 +357,7 @@ gxDKB = {
         unending_thirst = 0,
         vampiric_aura = 238698,
         souldrinker = 0,
+        concordance_of_the_legionfall = 243096,
 
         shackles_of_bryndaor = 132365,
         rattlegore_bone_legplates = 132453,
@@ -369,6 +370,7 @@ gxDKB = {
 
         gravewarden = 242010,
     },
+
     -- Frost
     {
         frost_strike = 49143,
@@ -400,6 +402,7 @@ gxDKB = {
         hungering_rune_weapon = 207127,
 
         sindragosas_fury = 190778,
+        concordance_of_the_legionfall = 242583,
 
         seal_of_necrofantasia = 137223,
         koltiras_newfound_will = 132366,
@@ -455,6 +458,7 @@ gxDKB = {
         apocalypse = 220143,
         gravitational_pull = 0,
         scourge_of_the_worlds = 191748,
+        concordance_of_the_legionfall = 242583,
 
         cold_heart = 151796,
         cold_heart_buff = 235599,
@@ -521,6 +525,7 @@ gxDHB = {
         balanced_blades = 0,
         demon_speed = 0,
         anguish = 202443,
+        concordance_of_the_legionfall = 242584,
 
         moarg_bionic_stabilizers = 137090,
         raddons_cascading_eyes = 137061,
@@ -569,6 +574,7 @@ gxDHB = {
         siphon_power = 0,
         fiery_demise = 0,
         painbringer = 207387,
+        concordance_of_the_legionfall = 243096,
 
         cloak_of_fel_flames = 137066,
         kirel_narak = 138949,
@@ -658,6 +664,7 @@ gxDRB = {
         moon_and_stars = 202942,
         wax_and_wane = 239952,
         circadian_invocation = 238119,
+        concordance_of_the_legionfall = 242586,
 
         impeccable_fel_essence = 137039,
         promise_of_elune_the_moon_goddess = 137023,
@@ -722,6 +729,7 @@ gxDRB = {
         ashamanes_bite = 0,
         fury_of_ashamane = 240670,
         bloodletters_frailty = 0,
+        concordance_of_the_legionfall = 242584,
     
         chatoyant_signet = 137040,
         ailuro_pouncers = 137024,
@@ -776,6 +784,7 @@ gxDRB = {
         adaptive_fur = 0,
         embrace_of_the_nightmare = 0,
         scintillating_moonlight = 0,
+        concordance_of_the_legionfall = 243096,
 
         luffa_wrappings = 137056,
         skysecs_hold = 137025,
@@ -790,6 +799,7 @@ gxDRB = {
                         Requires Druid
                         When Barkskin fades, all healing done to you is increased by 10% for 20 sec.]]
     },
+
     -- Restoration
     {
         solar_wrath = 5176,
@@ -833,6 +843,7 @@ gxDRB = {
         power_of_the_archdruid = 189877,
         dreamwalker = 0,
         deep_rooted = 0,
+        concordance_of_the_legionfall = 242586,
 
         tearstone_of_elune = 137042,
         essence_of_infusion = 137026,
@@ -1073,6 +1084,8 @@ insertGeneral = {
     aspect_of_the_turtle = 186265,
     call_pet_five = 83245,
 
+    concordance_of_the_legionfall = 242584,
+
     the_shadow_hunters_voodoo_mask = 137064,
     soul_of_the_huntmaster = 151641,
 }
@@ -1265,6 +1278,8 @@ insertGeneral = {
     spellsteal = 30449,
     timewarp = 80353,
 
+    concordance_of_the_legionfall = 242586,
+
     shard_of_the_exodar = 132410,
     belovirs_final_stand = 133977,
     belovirs_final_stand_buff = 207283,
@@ -1320,6 +1335,7 @@ gxMKB = {
         hot_blooded = 0,
         brew_stache = 214373,
         fortification = 213341,
+        concordance_of_the_legionfall = 243096,
 
         firestone_walkers = 137027,
         salsalabims_lost_tunic = 137016,
@@ -1376,6 +1392,7 @@ gxMKB = {
         light_on_your_feet = 0,
         the_mists_of_sheilun = 199888,
         blessings_of_yulon = 0,
+        concordance_of_the_legionfall = 242586,
 
         eye_of_collidus_the_warpwatcher = 137045,
         collidus_the_warpwatchers_gaze = 217474,
@@ -1447,6 +1464,7 @@ gxMKB = {
         transfer_the_power = 195321,
         master_of_combinations = 240672,
         thunderfist = 242387,
+        concordance_of_the_legionfall = 242584,
     
         cenedril_reflector_of_hatred = 137019,
         drinking_horn_cover = 137097,
@@ -1530,6 +1548,7 @@ gxPDB = {
         protection_of_tyr = 211210,
         the_light_saves = 0,
         sacred_dawn = 0,
+        concordance_of_the_legionfall = 242586,
 
         ilterendi_crown_jewel_of_silvermoon = 137046,
         ilterendi_crown_jewel_of_silvermoon_buff = 207589,
@@ -1584,6 +1603,7 @@ gxPDB = {
         light_of_the_titans = 209539,
         defender_of_truth = 0,
         blessed_stalwart = 242869,
+        concordance_of_the_legionfall = 243096,
 
         uthers_guard = 137105,
         heathcliffs_immortality = 137047,
@@ -1632,6 +1652,7 @@ gxPDB = {
         ashes_to_ashes = 0,
         righteous_verdict = 0,
         blessing_of_the_ashbringer = 0,
+        concordance_of_the_legionfall = 242583,
 
         liadrins_fury_unleashed = 137048,
         liadrins_fury_unleashed_buff = 208410,
@@ -1808,13 +1829,13 @@ gxPRB = {
         shadowform = 232698,
         mind_vision = 2096,
         psychic_scream = 8122,
-        void_bolt = 0,
-        void_eruption = 0,
-        voidform = 0,
+        void_bolt = 205448,
+        void_eruption = 228260,
+        voidform = 194249,
         purify_disease = 213634,
         vampiric_touch = 34914,
         shadow_mend = 186263,
-        shadow_word_death = 0,
+        shadow_word_death = 32379,
         levitate = 1706,
         shadowy_apparitions = 0,
         shadowfiend = 34433,
@@ -1866,6 +1887,8 @@ insertGeneral = {
     fade = 586,
     dispel_magic = 825,
     mass_dispel = 32375,
+
+    concordance_of_the_legionfall = 242586,
 
     soul_of_the_high_priest = 151646,
 }
@@ -2066,6 +2089,8 @@ insertGeneral = {
     tricks_of_the_trade = 57934,
     cloak_of_shadows = 31224,
 
+    concordance_of_the_legionfall = 242584,
+
     insignia_of_ravenholdt = 137049,
     will_of_valeera = 137069,
     will_of_valeera_buff = 208403,
@@ -2123,6 +2148,7 @@ gxSB = {
         volcanic_inferno = 0,
         fury_of_the_storms = 0,
         seismic_storm = 0,
+        concordance_of_the_legionfall = 242586,
 
         eye_of_the_twisting_nether = 137050,
         eye_of_the_twisting_nether_buff = 0,
@@ -2182,6 +2208,7 @@ gxSB = {
         doom_wolves = 0,
         unleash_doom = 199055,
         lashing_flames = 240842,
+        concordance_of_the_legionfall = 242584,
 
         eye_of_the_twisting_nether = 137050,
         eye_of_the_twisting_nether_buff = 0,
@@ -2242,6 +2269,7 @@ gxSB = {
         queen_ascendant = 0,
         servant_of_the_queen = 207654,
         cumulative_upkeep = 0,
+        concordance_of_the_legionfall = 242586,
 
         focuser_of_jonat_the_elder = 137051,
         jonats_focus = 210607,
@@ -2456,6 +2484,8 @@ insertGeneral = {
     create_soulwell = 29893,
     demonic_gateway = 111771,
 
+    concordance_of_the_legionfall = 242586,
+
     pillars_of_the_dark_portal = 132357,
     soul_of_the_netherlord = 151649,
     the_master_harvester = 151821,
@@ -2500,6 +2530,7 @@ gxWRB = {
         warbreaker = 209577,
         shattered_defenses = 248625,
         executioners_precision = 242188,
+        concordance_of_the_legionfall = 242583,
 
         weight_of_the_earth = 137077,
         archavons_heavy_hand = 137060,
@@ -2550,6 +2581,7 @@ gxWRB = {
         odyns_champion = 200986,
         berserking_fury_artifact = 200953,
         sense_death = 200979,
+        concordance_of_the_legionfall = 242583,
     
         ayalas_stone_heart = 137052,
         stone_heart = 225947,
@@ -2595,6 +2627,7 @@ gxWRB = {
     
         neltharions_fury = 203524,
         dragon_scales = 203581,
+        concordance_of_the_legionfall = 243096,
 
         thundergods_vigor = 137089,
         the_walls_fell = 137054,
