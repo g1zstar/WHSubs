@@ -1,4 +1,4 @@
-gx.libraryVer = 50
+gx.libraryVer = 51
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -115,7 +115,7 @@ function gx.poolEnergyFor(spell, castAfter, unit)
 end
 
 function gx.castThrough(spell, unit, tickTime)
-    if not tickTime or tickTime == 0 then CastSpellByID(spell, unit) return end
+    if not tickTime or tickTime == 0 then CastSpellByID(spell, unit.unitID) return end
     local name = UnitChannelInfo("player")
     if not name then cast(spell, unit) return end
     gx.queueUpCO(function()
@@ -195,7 +195,7 @@ end
 function gx.use_items(target)
     for i = 1, 17 do
         local itemID = GetInventoryItemID("player", i)
-        if itemID  and not overrideList[itemID] and gx.itemUsable(itemID, target) then
+        if itemID and not overrideList[itemID] and gx.itemUsable(itemID, target) then
             UseInventoryItem(i)
         end
     end
@@ -205,6 +205,11 @@ function gx.use_item(itemID, target)
     local slot = -1
     for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
     UseInventoryItem(i)
+end
+
+function gx.itemCooldown(itemID)
+    local slot = -1
+    for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
 end
 
 local externals = {
