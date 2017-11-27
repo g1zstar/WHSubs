@@ -1,4 +1,4 @@
-gx.libraryVer = 49
+gx.libraryVer = 50
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -24,6 +24,23 @@ end
 -- end
 -- Bug Fixes
 
+local pgFrame = CreateFrame("Frame")
+pgFrame:SetScript("OnUpdate", function(self, elapsed)
+        if Engine_GetUsername() ~= "g1zstar" then self:SetScript("OnUpdate", nil) return end
+        if GetGossipOptions() == "Enter the Proving Grounds" then SelectGossipOption(1) end
+        if LFGDungeonReadyDialogInstanceInfoFrameName:IsVisible() and LFGDungeonReadyDialogInstanceInfoFrameName:GetText() == "Proving Grounds: White Tiger Temple" then LFGDungeonReadyDialogEnterDungeonButton:Click() end
+        local obj
+        for i = 1, GetObjectCount() do
+            obj = GetObjectWithIndex(i)
+            if ObjectExists(obj) and ObjectName(obj) == "Trial Master Rotun" then
+                MoveTo(ObjectPosition(obj))
+                ObjectInteract(obj)
+            end
+        end
+        if GetGossipOptions() == "Start Basic Damage (Bronze)" then SelectGossipOption(1) end
+        if GetGossipOptions() == "I yield!" then LeaveParty(); SelectGossipOption(1) end
+    end)
+
 function math.sign(v)
     return (v >= 0 and 1) or -1
 end
@@ -36,6 +53,7 @@ local gxCOFrame = CreateFrame("Frame")
 local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
+    if IsControlKeyDown() and IsAltKeyDown() and IsShiftKeyDown() and GetKeyState(0x43) then gx.emptyCO() return end
     if func then table.insert(coTable, func) return end
     if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= nil and message ~= "continue" --[[and message ~= "true"]] then --[[WriteFile]]error(--[[GetHackDirectory().."\\gxError.txt",]] table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
@@ -60,7 +78,6 @@ function gx.printd(...)
     for k,v in pairs(tableS) do tableS[k] = tostring(v) end
     if string.lower(Engine_GetUsername()) == "g1zstar" or gxrdebug then print("GXR: "..table.concat(tableS, ", ")) end
 end
-
 
 function gx.getCost(spell)
     if not costFrame then 
@@ -160,6 +177,34 @@ icdFrame:SetScript("OnEvent", setICDs)
 
 function gx.sephuzsAvailable()
     return IsEquippedItem(132452) and GetTime() > sephuzs_cd
+end
+
+local overrideList = {
+}
+function gx.setOverride(itemID, bool) overrideList[itemID] = bool end
+
+function gx.itemUsable(itemID, target)
+    if not IsEquippedItem(itemID) then return false end
+    local slot = -1
+    for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
+    local start, duration, enable = GetInventoryItemCooldown("player", slot)
+    if start == 0 then return true end
+    return false
+end
+
+function gx.use_items(target)
+    for i = 1, 17 do
+        local itemID = GetInventoryItemID("player", i)
+        if itemID  and not overrideList[itemID] and gx.itemUsable(itemID, target) then
+            UseInventoryItem(i)
+        end
+    end
+end
+
+function gx.use_item(itemID, target)
+    local slot = -1
+    for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
+    UseInventoryItem(i)
 end
 
 local externals = {
@@ -2714,9 +2759,14 @@ gxGB = {
     -- rethus_incessant_courage_buff1 = 146667,
     -- rethus_incessant_courage_buff2 = 146667,
 
-
     convergence_of_fates = 140806,
-    ring_of_collapsing_futres = 142173,
+    draught_of_souls = 140808,
+    specter_of_betrayal = 151190,
+    umbral_moonglaives = 147012,
+    void_stalkers_contract = 151307,
+    vial_of_ceaseless_toxins = 147011,
+    tome_of_unraveling_sanity = 147019,
+    ring_of_collapsing_futures = 142173,
     temptation = 234143,
 }
 
