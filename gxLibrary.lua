@@ -1,4 +1,4 @@
-gx.libraryVer = 53
+gx.libraryVer = 54
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -53,7 +53,7 @@ local gxCOFrame = CreateFrame("Frame")
 local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
-    if IsControlKeyDown() and IsAltKeyDown() and IsShiftKeyDown() and GetKeyState(0x43) then gx.emptyCO() return end
+    if IsControlKeyDown() and IsAltKeyDown() and IsShiftKeyDown() and (GetKeyState(0x43) or GetKeyState(0x13)) then gx.emptyCO(); gx.printd("Breaking out of all sub routines.") return end
     if func then table.insert(coTable, func) return end
     if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= nil and message ~= "continue" --[[and message ~= "true"]] then --[[WriteFile]]error(--[[GetHackDirectory().."\\gxError.txt",]] table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
@@ -2150,6 +2150,7 @@ insertGeneral = {
     will_of_valeera = 137069,
     will_of_valeera_buff = 208403,
     mantle_of_the_master_assassin = 144236,
+    master_assassins_initiative = 235027,
     mantle_of_the_master_assassin_buff = 235027,
     soul_of_the_shadowblade = 150936,
 
