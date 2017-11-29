@@ -1,4 +1,4 @@
-gx.libraryVer = 52
+gx.libraryVer = 53
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -194,9 +194,11 @@ end
 
 function gx.use_items(target)
     for i = 1, 17 do
-        local itemID = GetInventoryItemID("player", i)
-        if itemID and not overrideList[itemID] and gx.itemUsable(itemID, target) then
-            UseInventoryItem(i)
+        if i ~= 15 and i ~= 6 then
+            local itemID = GetInventoryItemID("player", i)
+            if itemID and not overrideList[itemID] and gx.itemUsable(itemID, target) then
+                UseInventoryItem(i)
+            end
         end
     end
 end
@@ -204,12 +206,13 @@ end
 function gx.use_item(itemID, target)
     local slot = -1
     for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
-    UseInventoryItem(i)
+    UseInventoryItem(slot)
 end
 
 function gx.itemCooldown(itemID)
     local slot = -1
     for i = 1, 17 do if GetInventoryItemID("player", i) == itemID then slot = i end end
+    if GetInventoryItemCooldown("player", slot) == 0 then return 0 else return GetTime() - GetInventoryItemCooldown("player", slot) end
 end
 
 local externals = {
@@ -490,6 +493,7 @@ gxDKB = {
         dark_transformation = 63560,
         summon_gargoyle = 49206,
         army_of_the_dead = 42650,
+        master_of_ghouls = 246995,
 
         epidemic = 207317,
         blighted_rune_weapon = 194918,
@@ -2015,6 +2019,7 @@ gxRB = {
         run_through = 2098,
         saber_slash = 193315,
         pistol_shot = 185763,
+        opportunity = 195627,
         pick_pocket = 921,
         sap = 6770,
         between_the_eyes = 199804,
