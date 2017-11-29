@@ -1,4 +1,4 @@
-gx.libraryVer = 54
+gx.libraryVer = 55
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -53,7 +53,7 @@ local gxCOFrame = CreateFrame("Frame")
 local gxCO
 local coTable = {}
 function gx.queueUpCO(func)
-    if IsControlKeyDown() and IsAltKeyDown() and IsShiftKeyDown() and (GetKeyState(0x43) or GetKeyState(0x13)) then gx.emptyCO(); gx.printd("Breaking out of all sub routines.") return end
+    if IsControlKeyDown() and IsAltKeyDown() and IsShiftKeyDown() and (GetKeyState(0x43) or GetKeyState(0x13)) then gx.emptyCO(); gx.printd("GX: Breaking out of all sub routines.") return end
     if func then table.insert(coTable, func) return end
     if gxCO and type(gxCO) == "thread" and coroutine.status(gxCO) == "suspended" then local status = {coroutine.resume(gxCO)}; for k,v in pairs(status) do status[k] = tostring(v) end; local message = select(2, status) if message ~= nil and message ~= "continue" --[[and message ~= "true"]] then --[[WriteFile]]error(--[[GetHackDirectory().."\\gxError.txt",]] table.concat(status, ", ")) end return (message ~= "continue") elseif type(coTable[1]) ~= "nil" then gxCO = coroutine.create(coTable[1]); table.remove(coTable, 1) return true end
     return false
