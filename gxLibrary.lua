@@ -1,4 +1,4 @@
-gx.libraryVer = 55
+gx.libraryVer = 56
 
 -- Bug Fixes
 local oldSetStat = PaperDollFrame_SetStat
@@ -181,7 +181,7 @@ end
 
 local overrideList = {
 }
-function gx.setOverride(itemID, bool) overrideList[itemID] = bool end
+function gx.setOverride(itemID, bool) if itemID then overrideList[itemID] = bool end end
 
 function gx.itemUsable(itemID, target)
     if not IsEquippedItem(itemID) then return false end
@@ -2779,6 +2779,14 @@ gxGB = {
     tome_of_unraveling_sanity = 147019,
     ring_of_collapsing_futures = 142173,
     temptation = 234143,
+    unbridled_fury = 139327,
+    wild_golds_fury = 221695,
+    tiny_oozeling_in_a_jar = 137439,
+    congealing_goo = 215126,
+    fetid_regurgitation = 215127,
+    horn_of_valor = 133642,
+    valarjars_path = 215956,
+    forgefiends_fabricator = 151963,
 }
 
 local idsList = {"gxDKB", "gxDHB", "gxDRB", "gxHB", "gxMGB", "gxMKB", "gxPDB", "gxPRB", "gxRB", "gxSB", "gxWLB", "gxWRB"}
